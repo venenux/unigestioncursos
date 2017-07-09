@@ -29,7 +29,7 @@ Contenido:
 
 *  [Diseno] (docs/diseno-proyecto.md)
   *  [Modelo de negocio] (docs/desarrollo-modelo-de-negocio.md)
-  *  [Diseno de datos] (docs/diseno-base-de-datos.md)
+  *  [Modelo de datos] (docs/diseno-base-de-datos.md)
   *  [Artefactos tecnologicos] (docs/diseno-artefactos-tecnologicos.md)
   *  [Modulos de desarrollo] (docs/diseno-modulos-de-desarrollo.md)
 *  [Modelo de desarrollo] (docs/desarrollo-modelo-seguir.md)
