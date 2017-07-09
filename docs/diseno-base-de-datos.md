@@ -30,7 +30,7 @@ En la base de datos central estan los usuarios, que son tanto alumnos, como doce
 Diccionario de Datos
 ----------------------
 
-```
+``` sql
 -- Domingo Jul  9 18:27:04 2017
 -- Model: sacdbmodelo    Version: 1.0
 
