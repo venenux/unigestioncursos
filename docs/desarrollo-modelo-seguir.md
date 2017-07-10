@@ -52,25 +52,29 @@ Porque gitlab?: porque ofrece geston de projectos, github no ofrece un gestor de
 Como trabajar este proyecto?
 ============================
 
-1. Se necesita tener linux y el siguiente software:
-
-  * Gambas >> 3.5
-  * Curl
-  * Git
-  * MariaDB/MySQL
-
+1. Se necesita **tener linux** y el siguiente software:
+  + Si tiene bajos recursos o no tiene pc, descargar y grabar este linux: 
+     https://sourceforge.net/projects/venenux/files/VenenuX-0.9/venenux-0.9-misa3l-upata_exp_i386.iso/download
+  + esto le permitira usarlo sin instalar en un cybercafe, reinicie la pc con el disco insertado
+  + arrancar el pc desde el disco, y el entorno estara listo, requerira al menos 1G de ram para trabajar
+  + tenga ya o use el disco debe **tener o instalar el siguiente set de software/paquetes**:
+     * Gambas : es el entorno de programacion empleado igual a Visual Basic
+     * Curl : para que el sistema se comunique con internet
+     * Git  : para bajar/trabajar el codigo fuente y el proyecto
+     * MariaDB/MySQL : para tener base de datos en donde trabajar
+     * MysqlWorkbench : para modelar y manejar la base de datos graficamente
+     * Dia  : para modelar el entidad-relacion
+  + puede usar el Linux descargado desde usb: http://venenuxmassenkoh.blogspot.com/2012/03/instalador-beta-usb-vnx-basado-en.html 
+     el proceso es un poco complicado pero permite usar el USB y al mismo tiempo trabajar con el USB desde una pc sin instalar
 2. Clonar el repositorio
-
-``` bash
+`
 cd
 mkdir Devel & cd Devel
 git clone https://gitlab.com/venenux/unigestioncursos.git
 cd unigestioncursos
-```
-
+`
 3. Ir al menu y arrancar la herramienta correspondiente segun el caso (codificar aplicaion o diseno con la db):
-
-  3.1. Si codifica la aplicacion:
+  + Si codifica la aplicacion:
     * ir a menu->desarrollo->Gambas 
     * ejecutar el gambas IDE y 
     * una vez abierto, usar "abrir proyecto"
@@ -78,7 +82,7 @@ cd unigestioncursos
     * dentro de este el directorio unigestioncursos, 
     * dentro mostrara un icono el directorio de la aplicacion
     * escoger este y abrira el codigo para la aplicacion a codificar
-  3.2. Si disena para base de datos:
+  + Si disena para base de datos:
     * ir a menu->desarrollo->mysqlworkbench 
     * ejecutar el mysqlworkbench y 
     * una vez abierto, del menu arrbia o de la parte "modelos" abrir un modelo"
@@ -92,9 +96,8 @@ cd unigestioncursos
 5. Ejecutar una consola en el menu->sistemas->terminal 
 
 6. en la consola abierta hay que acometer los cambios y subirlos a el repositorio git:
-
-  6.1. en la consola ejecutar `cd Devel/unigestioncursos`
-  6.2. ejecutar lso comandos de cambios:
+  + en la consola ejecutar `cd Devel/unigestioncursos`
+  + ejecutar lso comandos de cambios:
     * `git add --all *`
     * `git commit`
     * al ejecutar el commit pedira escribir porque los cambios, sea explicit@
