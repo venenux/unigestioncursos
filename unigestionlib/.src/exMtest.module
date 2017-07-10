@@ -1,0 +1,24 @@
+' Gambas module file
+
+
+Public Function main()
+    
+  Dim objconfs As New ExCfgManage
+  Dim objdbcon As New ExDbManage
+  Dim $datadesdedb As Connection[]
+  Dim $configurado As Collection
+
+    Print exModSysNet.getIfdef()
+    Print exModSysNet.getIpall()[1]
+    Print exModSysInfo.ProjInfo()
+    Print exModSysFile.getFileDev()
+    
+    Print "creando archivo configuracion, y preparando db segun este:"
+  
+  $configurado = objconfs.configuracion
+  Print "creacion/lectura archivo configuracion: " & objconfs.configurado
+  $datadesdedb = objdbcon.conexciones
+  Print "creacion/conesciones a bases de datos: " & objdbcon.exconnavailable
+    
+End
+

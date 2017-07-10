@@ -1,0 +1,119 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,90,42)
+  Arrangement = Arrange.Vertical
+  Padding = 10
+  { mDefault Menu
+    { mFiltrar Menu
+      Action = "mFiltrar"
+      Text = ("Filtrar por este valor")
+    }
+    { mFiltro Menu
+      Action = "mFiltro"
+      Text = ("Filtro Avanzado")
+      Visible = False
+    }
+    { mNofiltrar Menu
+      Action = "mNofiltrar"
+      Text = ("Eliminar Filtro")
+    }
+    { mVerFiltro Menu
+      Action = "mVerFiltro"
+      Text = ("Ver Filtros Activos")
+    }
+    { mOrdenar Menu
+      Action = "mOrdenar"
+      Text = ("Ordenar")
+      Picture = Picture["icon:/22/sort-ascent"]
+    }
+    { mExportar Menu
+      Action = "mExportar"
+      Text = ("Exportar como CSV")
+      Picture = Picture["icon:/22/save-as"]
+    }
+    { Menu2 Menu
+    }
+  }
+  { !grid exgridview
+    MoveScaled(1,1,88,35)
+    #Public = True
+    Expand = True
+    Header = GridView.Both
+  }
+  { !pnBots Panel
+    MoveScaled(5,37,67,4)
+    #Public = True
+    Arrangement = Arrange.Horizontal
+    Border = Border.Plain
+    { Label1 Label
+      MoveScaled(0,0,7,4)
+      Visible = False
+      AutoResize = True
+      Text = ("Filtrar: ")
+      Alignment = Align.Right
+    }
+    { bAutofiltro ToolButton
+      MoveScaled(8,0,4,4)
+      ToolTip = ("Filtrar por la celda seleccionada")
+      Picture = Picture[".hidden/icons/search-x-play.png"]
+    }
+    { bavanzado ToolButton
+      MoveScaled(12,0,4,4)
+      Visible = False
+      ToolTip = ("Filtro Avanzado")
+      Picture = Picture[".hidden/icons/text-x-texinfo.png"]
+    }
+    { bTodos ToolButton
+      MoveScaled(16,0,4,4)
+      ToolTip = ("Limpiar Filtros y Ordenaciones")
+      Picture = Picture[".hidden/icons/search-x-restart.png"]
+    }
+    { buscar ComboBox
+      MoveScaled(21,0,25,4)
+      ToolTip = ("Teclea cadena a filtrar en la columna activa")
+      Sorted = True
+    }
+    { bBuscar ToolButton
+      MoveScaled(47,0,4,4)
+      ToolTip = ("Filtrar la columna activa por la cadena tecleada")
+      Picture = Picture[".hidden/icons/search-x-search.png"]
+    }
+    { bVerfiltro ToolButton
+      MoveScaled(52,0,4,4)
+      ToolTip = ("Ver Filtro actual")
+      Picture = Picture[".hidden/icons/search-x-info.png"]
+    }
+  }
+}
+
+# Gambas Action File 3.0
+
+{ Actions
+  { Action mExportar
+    Text = "Exportar como CSV"
+    Shortcut = ""
+    Picture = "icon:/22/save-as"
+  }
+  { Action mFiltrar
+    Text = "Filtrar por este valor"
+    Shortcut = ""
+  }
+  { Action mFiltro
+    Text = "Filtro Avanzado"
+    Shortcut = ""
+  }
+  { Action mNofiltrar
+    Text = "Eliminar Filtro"
+    Shortcut = ""
+  }
+  { Action mOrdenar
+    Text = "Ordenar"
+    Shortcut = ""
+    Picture = "icon:/22/sort-ascent"
+  }
+  { Action mVerFiltro
+    Text = "Ver Filtros Activos"
+    Shortcut = ""
+  }
+}

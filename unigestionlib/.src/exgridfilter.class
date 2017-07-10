@@ -1,0 +1,300 @@
+' Gambas class file
+
+'' Un "Extended Gridview"<br>*Author* PICCORO Lenz McKAY, Jorge Carrión<br>un Gridview extendido, provee indexacion en ram, busqueda e integracion de exportacion, lo que hace su trabajo eficiente sin tener que ir varias veces a la fuente, que puede ser un resultado sql o una collecion o cualquier fuente indexada que tenda definidos los indices como alfanumericos
+
+Inherits UserControl
+
+Export
+''FIXME: volver a poner las propiedades de color, que el que no se de la opción en los programas no quiere decir que el control no las tenga.
+Public Const _Properties As String = "*,source,widths,wordWrap=False,titles,alternate=-1,mode,subMenu{Menu},menuDefault=-1,showButtons=-1,showExportMenu=-1,posButtons{Align.Bottom;Right}=Bottom"
+Public Const _Group As String = "View"                  ' no importa la fuente, no interactua con base de datos pero trata datos, se coloca en view con tranquilidad
+Public Const _Similar As String = "GridView"            ' extiende la capacidad de estos controles de los cuales hereda, solo gridview ya que tableview le falta o sobra propiedades
+Public Const _drawWith As String = "TableView"           ' se pinta basado en Tableview puesto hereda desde el mismo, usa sus propiedades para pintarse en forms
+Public Const licencia As String = "https://gitlab.com/venenux/gambasex/blob/master/LICENSE.md" '' Licencia especial CC-BY-SS con ecepciones, detalles https://gitlab.com/venenux/gambasex/blob/master/LICENSE.md
+
+Event Click()
+Event DblClick()
+Event Action_Activate(opcion As String)
+
+Property {source} As Variant  ''Fuente de datos como objeto *Collecion*, *Matrix* bidimensional o objeto *Result*. La clase lo maneja en su variable privada *[$source]*<br> ejemplo: <code>exGriview.source\=con.exec("SELECT \* FROM Tabla")</code> <br>Es necesario proporcionar una fuente de datos de matrix bidimensional, como lo son:<br>- En caso de matriz, de dos dimensiones de cadenas,<br>- o directo el resultado de una consulta,<br>- O n objeto collection con sus indices definidos.<br><br>*RETURNS*: objeto matrix de dos dimensiones, puede tratarse como collecion.
+Property widths As String[] ''Anchos de las columnas si las queremos fijas
+Property wordWrap As Boolean '' Si está activo el contenido de la columna se amplia en varias lineas si es necesario
+Property titles As String[] ''Titulos de las columnas si las queremos distintas a los nombres de los campos
+Property mode As Integer ''Modo de selección, multiple, single
+Property alternate As Boolean ''Alternar colores en las líneas
+Property subMenu As String ''nombre del menu definido popup con el botón derecho del ratón
+Property menuDefault As Boolean ''Si cierto aparecerá el menú por defecto. Si se ha establecido  subMenu éste aparecerá debajo del menu por defecto. Si falso y hay subMenu sólo aparecerá subMenu. Si falso y no hay subMenu, no aparecerá nada.
+Property grid As ExGridview  '' exGridFilter extiende de ExGridview un extended gridView con capacidades de ordenamiento y recursividad en memoria a partir de fuente de datos matricial (colleccion o arreglo bidimensional o Result)
+Property showButtons As Boolean ''Especifica si la botonera es visible o no
+Property posButtons As Integer ''Posición de la Botonera 0=debajo, 1=encima,2=Izquierda,3=derecha
+Property showExportMenu As Boolean ''Especifica si la opción de exportar los datos a CSV en el menú por defecto es visible o no. 
+Property Read value As Collection ''Collección con los valores de la fila seleccionadas
+Property Read selection As Collection[] ''Collección con los valores de la fila seleccionadas
+Property Read pnBotones As Panel '' panel contenedor de botones de busqueda
+Property Read isShift As Boolean
+Property Read isControl As Boolean
+
+Private $Form As Exgridfilterf
+Private $Grid As ExGridview
+Private $obs As Observer
+Private $menu As String
+Private $original As Variant
+
+Public Sub _new()
+    
+    $Form = New Exgridfilterf(Me)
+    'fGridFilter.verDefault = True
+    $Form.Show
+    $Grid = $Form.grid
+    $Grid.Header = GridView.Both
+    $Grid.ScrollBar = Scroll.Both
+    $Grid.Mode = Select.Multiple
+    $obs = New Observer($Grid) As "Grid" 
+    $original = New Variant[] 
+    
+End
+
+Public Sub subMenus(opcion As String) 
+    
+    Raise Action_Activate(opcion)  
+    
+End
+
+Public Sub Grid_Click()
+    
+    Raise Click()  
+    
+End
+
+Public Sub Grid_DblClick()
+    
+    Raise DblClick()  
+    
+End
+
+Private Function widths_Read() As String[]
+    
+    Dim ar As New String[]
+    Dim n As Integer
+    
+    For Each n In $Grid.widths
+        ar.Add(Str(n))
+    Next
+    Return ar
+    
+End
+
+Private Sub widths_Write(Value As String[])
+    
+    Dim aint As New Integer[]
+    Dim s As String
+    
+    For Each s In value
+        aint.Add(Val(s))
+    Next
+    $grid.widths = aint
+    
+End
+
+Private Function titles_Read() As String[]
+    
+    Return $Grid.titles
+    
+End
+
+Private Sub titles_Write(Value As String[])
+    
+    $Grid.titles = Value
+    
+End
+
+Private Function alternate_Read() As Boolean
+    
+    Return $grid.alternate
+    
+End
+
+Private Sub alternate_Write(Value As Boolean)
+    
+    $Grid.alternate = Value
+    
+End
+
+Private Function pnBotones_Read() As Panel
+    
+    Return $Form.pnBotones
+    
+End
+
+Private Function subMenu_Read() As String
+    
+    Return $Menu
+    
+End
+
+Private Sub subMenu_Write(Value As String)
+    
+    Dim n As Integer
+    Dim f As Object
+    
+    $menu = Value
+    If Value = "" Then 
+        $Form.subMenu = Null
+    Else
+        f = Me
+        Do 
+            f = f.parent
+        Loop Until f Is Form
+        For n = 0 To f.Menus.Count - 1  
+            If f.Menus[n].name = $menu Then 
+                $Form.subMenu = f.Menus[n]
+                Break
+            Endif
+        Next
+    Endif
+    
+End
+
+Private Function mode_Read() As Integer
+    
+    Return $grid.Mode
+    
+End
+
+Private Sub mode_Write(Value As Integer)
+    
+    $grid.Mode = Value
+    
+End
+
+Private Function isShift_Read() As Boolean
+    
+    Return $Grid.isShift
+    
+End
+
+Private Function isControl_Read() As Boolean
+    
+    Return $Grid.isControl
+    
+End
+
+Private Function grid_Read() As Exgridview
+    
+    Return $grid
+    
+End
+
+Private Sub grid_Write(Value As Exgridview)
+    
+    $grid = Value
+    
+End
+
+Private Function menuDefault_Read() As Boolean
+    
+    Return $Form.verDefault
+    
+End
+
+Private Sub menuDefault_Write(Value As Boolean)
+    
+    $Form.verDefault = Value
+    
+End
+
+Private Function showButtons_Read() As Boolean
+    
+    Return $Form.pnBots.Visible
+    
+End
+
+Private Sub showButtons_Write(Value As Boolean)
+    
+    $Form.pnBots.Visible = Value
+    
+End
+
+Private Function showExportMenu_Read() As Boolean
+    
+    Return $Form.Menus[0].Children[4].Visible
+    
+End
+
+Private Sub showExportMenu_Write(Value As Boolean)
+    
+    $Form.Menus[0].Children[5].Visible = Value
+    
+End
+
+Private Function posButtons_Read() As Integer
+    
+    Return $Form.posButtons
+    
+End
+
+Private Sub posButtons_Write(Value As Integer)
+    
+    $Form.posButtons = Value
+    
+End
+
+Private Function wordWrap_Read() As Boolean
+    
+    Return $Grid.wordWrap
+    
+End
+
+Private Sub wordWrap_Write(Value As Boolean)
+    
+    $Grid.wordWrap = Value
+    
+End
+
+Private Function Value_Read() As Collection
+    
+    Dim n As Integer
+    Dim clave, valor As String
+    Dim actual As New Collection
+    
+    If $Grid.Row = -1 Then Return -1
+    For n = 0 To $Grid.columns.Count - 1
+        valor = IIf($Grid[$Grid.Row, n].text = "", $Grid[$Grid.row, n].richText, $Grid[$Grid.row, n].text)
+        clave = $Grid.columns[n].Text
+        actual.Add(valor, clave)
+    Next
+    Return actual
+    
+End
+
+Private Function Selection_Read() As Collection[]
+    
+    Dim n, c As Integer
+    Dim clave, valor As String
+    Dim actual As New Collection
+    Dim ar As New Collection[]
+    
+    For c = 0 To $Grid.Rows.Selection.Count - 1
+        actual = New Collection
+        For n = 0 To $Grid.columns.Count - 1
+            valor = IIf($Grid[$Grid.Rows.Selection[c], n].text = "", $Grid[$Grid.Rows.Selection[c], n].richText, $Grid[$Grid.Rows.Selection[c], n].text)
+            clave = $Grid.rslt.Fields[n].Name
+            actual.Add(valor, clave)
+        Next
+        ar.Add(actual)
+    Next
+    Return ar
+    
+End
+
+Private Function source_Read() As Variant
+    
+    Return $grid.source
+    
+End
+
+Private Sub source_Write(Value As Variant)
+    
+    $form.source = Value
+    
+End
