@@ -1,8 +1,9 @@
 # Gambas Project File 3.0
-# Compiled with Gambas 3.5.4
+# Compiled with Gambas 3.9.1
 Title=unigestionlib
 Startup=exMtest
-Version=1.0.1
+Version=1.0.3
+Component=gb.args
 Component=gb.image
 Component=gb.qt4
 Component=gb.form
@@ -24,7 +25,10 @@ Component=gb.xml
 Component=gb.xml.xslt
 Description="app central que sincroniza y conecta los sistemas, provee de funciones comunes, como session de usuarios y registros del mismo, la interfaz grafica la usa y provee usabilidad con ella"
 TabSize=4
+Language=es
+RunAfter=cp unigestionlib.gambas ../
 Type=Library
 ControlPublic=1
 ModulePublic=1
+Vendor=venenux
 Packager=1

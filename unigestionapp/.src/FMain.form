@@ -1,0 +1,71 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,71,64)
+  { Menu0 Menu
+    Text = ("Programa")
+    { Menu01 Menu
+      Text = ("Session")
+    }
+    { Menu02 Menu
+      Text = ("Cerrar")
+    }
+    { Menu03 Menu
+      Text = ("Salir")
+    }
+  }
+  { Menu1 Menu
+    Text = ("Entidades")
+    { Menu11 Menu
+      Text = ("Usuarios")
+    }
+    { Menu12 Menu
+      Text = ("Docentes")
+    }
+    { Menu14 Menu
+      Text = ("Sedes")
+    }
+    { Menu15 Menu
+      Text = ("Aulas")
+    }
+    { Menu16 Menu
+      Text = ("Cursos")
+    }
+  }
+  { Menu2 Menu
+    Text = ("Procesos")
+    { Menu21 Menu
+      Text = ("Asistencia")
+    }
+    { Menu24 Menu
+      Text = ("Bitacora")
+    }
+    { Menu23 Menu
+      Text = ("Registrar")
+    }
+    { Menu22 Menu
+      Text = ("Egresar")
+    }
+  }
+  { Menu4 Menu
+    Text = ("Archivos")
+    { Menu31 Menu
+      Text = ("Reportes")
+    }
+    { Menu32 Menu
+      Text = ("Certificados")
+    }
+    { Menu33 Menu
+      Text = ("Documentos")
+    }
+    { Menu34 Menu
+      Text = ("Sistema")
+    }
+  }
+  { Menu3line Menu
+  }
+  { piclogo1inces PictureBox
+    MoveScaled(49,0,22,21)
+    Picture = Picture[".hidden/logoinces.png"]
+  }
+}

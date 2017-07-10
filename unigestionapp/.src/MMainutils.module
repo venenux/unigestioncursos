@@ -1,0 +1,11 @@
+' Gambas module file
+
+Public Sub alertemtpy(contro As Variant) As Boolean
+  
+  If Comp(Replace(contro.text, " ", "", gb.IgnoreCase), "", gb.IgnoreCase) = 0 Then
+    Message.Warning("debe escribir en el campo " & contro.name)
+    Return False
+  Endif
+  Return True
+  
+End

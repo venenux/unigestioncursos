@@ -1,4 +1,4 @@
 [Component]
 Key=unigestionlib
-Version=1.0.1
-Requires=gb.db,gb.vb,gb.form,gb.qt4,gb.db.mysql,gb.db.sqlite3,gb.db.odbc,gb.net,gb.net.curl
+Version=1.0.3
+Requires=gb.db,gb.vb,gb.form,gb.qt4,gb.db.mysql,gb.db.sqlite3,gb.db.odbc,gb.net,gb.net.curl,gb.settings

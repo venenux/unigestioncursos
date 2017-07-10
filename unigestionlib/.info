@@ -57,23 +57,23 @@ C
 _Properties
 C
 s
-*,wordWrap=True,setHeads=True,expandCols=False,titles,widths,alternate=T
+"*,wordWrap=True,setHeads=True,expandCols=False,titles,widths,alternate=T"
 _Group
 C
 s
-View
+"View"
 _Similar
 C
 s
-GridView,TableView
+"GridView,TableView"
 _drawWith
 C
 s
-GridView
+"GridView"
 licencia
 C
 s
-CC-BY-NC-SS con ecepciones, detalles https://gitlab.com/venenux/gambasex/blob/master/LICENSE.md
+"CC-BY-NC-SS con ecepciones, detalles https://gitlab.com/venenux/gambasex/blob/master/LICENSE.md"
 source
 p
 v
@@ -286,10 +286,19 @@ M
 s
 
 'devuelve la distribución madre como nombre corto xmi <br> @return String
+SysFile
+M
+s
+(ruta)s
+'migrado: alias de [exModSysFile.getFileSys]
 ProjInfo
 M
 String[]
 [(strPath)s]
+Ls
+M
+s
+(ruta)s
 AddressIP
 M
 s
@@ -346,29 +355,42 @@ M
 String[]
 
 'obtener todas las ip/direcciones de red activas de las configuradas
+#exModUtil
+
+C
+'Se trabaja con manipulacion de variables
+ucfirst
+M
+s
+(strInput)s
+'variable interna para resultado ofrecido por cada funcion
+ucwords
+M
+s
+(strInput)s
 #exgridfilter
 UserControl
 C
 _Properties
 C
 s
-*,source,widths,wordWrap=False,titles,alternate=-1,mode,subMenu{Menu},menuDefault=-1,showButtons=-1,showExportMenu=-1,posButtons{Align.Bottom;Right}=Bottom
+"*,source,widths,wordWrap=False,titles,alternate=-1,mode,subMenu{Menu},menuDefault=-1,showButtons=-1,showExportMenu=-1,posButtons{Align.Bottom;Right}=Bottom"
 _Group
 C
 s
-View
+"View"
 _Similar
 C
 s
-GridView
+"GridView"
 _drawWith
 C
 s
-TableView
+"TableView"
 licencia
 C
 s
-https://gitlab.com/venenux/gambasex/blob/master/LICENSE.md
+"https://gitlab.com/venenux/gambasex/blob/master/LICENSE.md"
 'Licencia especial CC-BY-SS con ecepciones, detalles https://gitlab.com/venenux/gambasex/blob/master/LICENSE.md
 :Click
 :

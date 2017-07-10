@@ -1,0 +1,30 @@
+' Gambas module file
+
+Export
+
+''' Se trabaja con manipulacion de variables
+
+Private outputfunction As String    '' variable interna para resultado ofrecido por cada funcion
+
+Public Function ucfirst(strInput As String) As String ''Devuelve un texto con la primera letra en mayusculas y todas las siguientes en minúsculas.
+    
+    outputfunction = strInput
+    If Comp(Replace(strInput, " ", ""), "") = 0 Then
+        outputfunction = String.UCase(String.Mid(strInput, 1, 1))
+        outputfunction &= String.LCase(String.Mid(strInput, 2, String.len(strInput) - 1))
+    Endif
+    Return outputfunction
+    
+End
+
+Public Function ucwords(strInput As String) As String ''Devuelve un texto con la primera letra en mayusculas de cada una de las palabras, removiendo espacios extra
+    
+    Dim strtmp As String[]
+    Dim strtp As String
+    outputfunction = ""
+    strtmp = Split(strtmp, " ")
+    For Each strtp In strtmp
+        outputfunction = outputfunction & " " & ucfirst(strtmp)
+    Next
+    Return outputfunction
+End

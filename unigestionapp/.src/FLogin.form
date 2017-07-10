@@ -1,0 +1,14 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,70,33)
+  { usuario_nombre TextBox
+    MoveScaled(12,3,20,5)
+  }
+  { usuario_clave TextBox
+    MoveScaled(12,9,20,5)
+  }
+  { loginbtn Button
+    MoveScaled(12,15,20,6)
+  }
+}

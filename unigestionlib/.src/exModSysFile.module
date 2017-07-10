@@ -46,4 +46,3 @@ Public Sub caltoods(Optional namefile As String = "", Optional pathfile As Strin
   Return Null
   
 End
-

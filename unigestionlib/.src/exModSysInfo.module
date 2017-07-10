@@ -215,6 +215,12 @@ Public Function WGroup() As String 'devuelve el Grupo de trabajo del pc
     
 End
 
+Public Function SysFile(ruta As String) As String '' migrado: alias de [exModSysFile.getFileSys]
+    
+    Return exModSysFile.getFileSys(ruta)
+    
+End
+
 Public Function ProjInfo(Optional strPath As String) As String[] ''Devuelve una matriz con la información del projecto alojada en el archivo ".project" si no se le pasa el camino del archivo .project del que se desea extraer la información la funcion devolvera los datos del proyecto local. Luego, el orden de cada item es el siguiente:<ol start="0"><li>Title</li><li>Description</li><li>Authors</li><li>Vendor</li><li>Version</li><li>Component</li><li>Language</li><li>Startup</li><li>Icon</li></ol>
     
     Dim stxKeys As New String[]
@@ -298,6 +304,18 @@ Public Function ProjInfo(Optional strPath As String) As String[] ''Devuelve una 
     
 End
 
+Public Function Ls(Ruta As String) As String 'devuelve un listado del directorio pasado en ruta
+    
+    Dim sListado As String
+    
+    Shell "ls -a " & Ruta To sListado 'Almacenamos listado directorio
+    Return RTrim(Replace(sListado, "\n", ":"))
+    'Otros comandos que devuelven un listado con las aplicaciones instaladas
+    ' dpkg - l
+    ' dpkg --get-selections es igual a dpkg -l | cut -d ' ' -f3
+    
+End
+
 Public Function AddressIP() As String 'devuelve las Ips configuradas en el equipo
     
     Dim sIPs As String
@@ -325,7 +343,9 @@ Public Function Hdserial() As String 'devuelve el número de serie del disco dur
     
 End
 
-Public Function UUIDswap() As String ''devuelve UUID de la swap para utilizarlo como PK de la BDD, Requiere permisos de supervaca
+Public Function UUIDswap() As String
+    'devuelve UUID de la swap para utilizarlo como PK de la BDD
+    'Requiere permisos de Administrador
     
     Dim sUID As String
     

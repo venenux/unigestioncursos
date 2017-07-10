@@ -1,0 +1,36 @@
+' Gambas module file
+
+' Public Sub _new()
+'   Args.Begin()
+'     $sReplace = Args.Get("d", "escritorio")
+'     If Not $sReplace Then $sReplace = ""
+'   Args.End()
+' End
+
+' Gambas module file
+
+'To store provided username and password on form FLogin for later use on form FMain
+Public UserName As String
+Public UserPass As String
+
+Public Sub Main()
+
+  Dim respuesta As Integer = 0
+  'Open form FLogin as Modal
+  respuesta = FLogin.ShowModal()
+  If CBool(respuesta) Then
+    ' login es -1 o true, levante el formulario de gestion cursos
+    FMain.Show
+  Else
+    ' reintenta una vez mas
+    respuesta = FLogin.ShowModal()
+    If respuesta Then
+      ' login true o -1 levanta el main
+      FMain.Show
+    Else
+      Message.Error("credenciales incorrectas saliendo")
+      Quit
+    Endif
+  Endif
+
+End
