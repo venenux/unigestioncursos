@@ -21,11 +21,7 @@ En la base de datos central estan los usuarios, que son tanto alumnos, como doce
 
 ### Modelo DB central
 
-![unigestiondb-unidbcentral](/uploads/e8bfea6620e545270becc804308d03dc/unigestiondb-unidbcentral.png)
-
-### Modelo DB aplicacion
-
-![unigestiondb-unidbcliente](/uploads/96c38b60209bacc793a2e1047aae31c2/unigestiondb-unidbcliente.png)
+![unigestiondb-unidbcentral](/uploads/d08ed9918c915a64f47cb27b6eb20bcc/unigestiondb-unidbcentral.png)
 
 Diccionario de Datos
 ----------------------
