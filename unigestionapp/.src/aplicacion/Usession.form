@@ -1,0 +1,27 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,94,46)
+  { ususerdatagrid exGridview
+    MoveScaled(1,11,92,22)
+  }
+  { usbtncerrar Button
+    MoveScaled(79,36,14,4)
+  }
+  { ustextuserinfo TextArea
+    MoveScaled(1,2,92,8)
+  }
+  { uspanelupdateinput Panel
+    MoveScaled(1,33,71,12)
+    { usbtnactualizar Button
+      MoveScaled(46,3,14,4)
+    }
+    { usdatainput TextBox
+      MoveScaled(0,3,44,4)
+    }
+    { uslblactualizarhelp0 Label
+      MoveScaled(1,8,69,3)
+      Text = ("Pulse en una celda y cambie aqui su contenido, para grabar puse el boton")
+    }
+  }
+}

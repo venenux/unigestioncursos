@@ -1,0 +1,24 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,94,52)
+  { uegrifilter exgridfilter
+    MoveScaled(1,1,91,39)
+  }
+  { uepanelupdateinput Panel
+    MoveScaled(1,40,71,12)
+    { uebtnactualizar Button
+      MoveScaled(46,3,14,4)
+    }
+    { uedatainput TextBox
+      MoveScaled(0,3,44,4)
+    }
+    { uelblactualizarhelp0 Label
+      MoveScaled(1,8,69,3)
+      Text = ("Pulse en una celda y cambie aqui su contenido, para grabar puse el boton")
+    }
+  }
+  { uebtncerrar Button
+    MoveScaled(78,43,14,4)
+  }
+}

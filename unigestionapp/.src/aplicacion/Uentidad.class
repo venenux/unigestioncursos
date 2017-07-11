@@ -1,0 +1,72 @@
+' Gambas class file
+
+Public $datadesdedb As Connection[]
+Public $configurado As Collection
+Public $usuariofiltro As String = ""    '' usuario que se filtra en la parte del grid
+Public $usuariologin As String = ""     '' usuario que actualmente corre el programa
+
+Public Sub Form_Open()
+
+    Dim filas As New Variant[]
+    Dim titulos As New String[]
+
+    FMain.Visible = False                   ' escondo la ventana principal
+    Uentidad.Raise                          ' levanto esta ventana de usuario(s)
+    
+    uepanelupdateinput.Hide
+    uepanelupdateinput.Visible = False
+    uebtncerrar.Text = "Cerrar"
+    uebtnactualizar.Text = "Cambiarlos"
+
+    ' listo ya esta llena, ahora ir por la real en la db, segun si es todo o solo el usuario actual
+    uellenarcondata
+
+End
+
+Public Sub uebtncerrar_Click()
+
+   Uentidad_Close
+
+End
+
+
+Public Sub Uentidad_Close()
+
+    FMain.Visible = True
+    FMain.Raise
+    Me.Close
+    Return
+
+End
+
+Public Sub uellenarcondata()
+    
+    Dim sqlsedes As String
+    Dim resultadosedes As Result
+
+    $usuariofiltro = Trim($usuariofiltro)   ' limpiamos de basura el filtro, si alguno
+
+    sqlsedes = "SELECT`en`.`cod_entidad`,`en`.`abr_zona`,`en`.`abr_entidad`,`en`.`des_entidad`,`en`.`cod_juridico`,`en`.`estado`,`en`.`tipo_entidad`,`en`.`clase_entidad`,`en`.`num_telefonofijo`,`en`.`num_extension`,`en`.`usr_encargado1` as gerencia,`en`.`usr_encargado2` as jefe_personal,`en`.`usr_encargado3` as coordinador,`en`.`fecha_encargado1` as fecha_gerencia,`en`.`fecha_encargado2` as fecha_jefe,`en`.`fecha_encargado3` as fecha_coordinador,`en`.`fecha_inventario`,`pa`.`des_patrimonio` as patrimonio,`pa`.`cod_identificacion` as numero_identificacion,`en`.`fecha_inventario`,`en`.`sessionflag` as alterado,`en`.`sessionficha` as creado FROM `adm_entidad` as `en`left join `inv_patrimonio` as `pa`on `pa`.`cod_patrimonio` = `en`.`cod_patrimonio`"
+
+
+    uegrifilter.Mode = Select.Single    ' traer la data para la parte del filtro mostrar la data con un combo de filtrado
+    Error.Clear
+    Try resultadosedes = $datadesdedb[1].Exec(sqlsedes)
+   'If Comp($usuariofiltro, $usuariologin, gb.IgnoreCase) <> 0 And Not Error Then
+        If resultadosedes.Available Then                  ' si no hay datos o ocurre error dejar la info inicial arriba
+            uegrifilter.source = resultadosedes
+        Endif
+    'Endif
+    
+End
+
+Public Sub uegrifilter_Click()
+
+    uepanelupdateinput.Visible = True
+    uepanelupdateinput.Show
+    uedatainput.Text = uegrifilter.grid.Current.Text
+    If Comp(Trim(uegrifilter.grid.Current.Text), "") = 0 Then
+        uedatainput.Text = uegrifilter.grid.Current.RichText
+    Endif
+
+End

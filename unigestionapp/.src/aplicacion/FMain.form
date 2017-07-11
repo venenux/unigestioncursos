@@ -17,7 +17,7 @@
   { Menu1 Menu
     Text = ("Entidades")
     { Menu11 Menu
-      Text = ("Usuarios")
+      Text = ("Alumnos")
     }
     { Menu12 Menu
       Text = ("Docentes")
@@ -65,12 +65,18 @@
   { Menu3line Menu
   }
   { piclogo1inces PictureBox
-    MoveScaled(40,2,22,21)
-    Picture = Picture[".hidden/logoinces.png"]
+    MoveScaled(15,4,37,30)
+    Picture = Picture[".hidden/imagenes/logoinces.png"]
+    Stretch = True
   }
   { PictureBox1 PictureBox
-    MoveScaled(54,23,17,17)
-    Picture = Picture[".hidden/venenuxlogo.png"]
+    MoveScaled(63,1,8,8)
+    Picture = Picture[".hidden/imagenes/venenuxlogo.png"]
+    Stretch = True
+  }
+  { PictureBox2 PictureBox
+    MoveScaled(66,32,5,8)
+    Picture = Picture[".hidden/imagenes/powered-venenux.jpg"]
     Stretch = True
   }
 }

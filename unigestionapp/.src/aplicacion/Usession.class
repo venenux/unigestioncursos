@@ -1,0 +1,109 @@
+' Gambas class file
+
+Public $datadesdedb As Connection[]
+Public $configurado As Collection
+Public $usuariofiltro As String = ""    '' usuario que se filtra en la parte del grid
+Public $usuariologin As String = ""     '' usuario que actualmente corre el programa
+
+
+Public Sub Form_Open()
+
+    Dim filas As New Variant[]
+    Dim titulos As New String[]
+
+    FMain.Visible = False                   ' escondo la ventana principal
+    Usession.Raise                          ' levanto esta ventana de usuario(s)
+    
+    titulos = ["fecha session", "detalles"]
+    filas.Add(titulos, 0)
+    filas.Add(["20160220", "lorem ipsum"], 1)
+    filas.Add(["20170202", "data ipsum ber ber <br>veer"], 1)
+
+    ' inicializar la pantallita de sesion/usuario/usuarios, con data "dummy" o fake..
+    ususerdatagrid.setHeads = True           ' forzar la habilitacion
+    ususerdatagrid.titles = titulos          ' coloco unos titulos fake
+    ususerdatagrid.source = filas            ' y coloco una data fake, despues veo la db por la data real
+    ususerdatagrid.Mode = Select.Single
+    
+    uspanelupdateinput.Hide
+    uspanelupdateinput.Visible = False
+    usbtncerrar.Text = "Cerrar"
+    usbtnactualizar.Text = "Cambiarlos"
+    ustextuserinfo.Text = "Usuario: No hay datos, Error db, Interno\nCreado: 20120621\nAlterado:20120622"
+    ' listo ya esta llena, ahora ir por la real en la db, segun si es todo o solo el usuario actual
+    usllenarcondata
+
+End
+
+
+Public Sub usbtncerrar_Click()
+
+    Usession_Close
+
+End
+
+
+Public Sub Usession_Close()
+
+    FMain.Visible = True
+    FMain.Raise
+    Me.Close
+    Return
+
+End
+
+Public Sub usllenarcondata()
+    
+    Dim sqlmiuser As String
+    Dim sqltodos As String
+    Dim resultadodatauser As Result
+    Dim resultadodatausrs As Result
+
+    $usuariofiltro = Trim($usuariofiltro)   ' limpiamos de basura el filtro, si alguno
+
+    sqlmiuser = "SELECT `cod_usuario`,`intranet` as nombre_usuario,`nombre`,`origen`,`condicion`,`estado`,`tipo_usuario`,`fecha_ingreso`,`fecha_ultimavez` as `Ultimo Ingreso`,`sessionflag` as `Alterado`,`sessionficha` as `Creado` FROM `adm_usuario`"
+    sqltodos = "SELECT `cod_usuario`,`intranet` as nombre_usuario,`nombre`,`origen`,`condicion`,`estado`,`tipo_usuario`,`fecha_ingreso`,`fecha_ultimavez` as `Ultimo Ingreso`,`sessionflag` as `Alterado`,`sessionficha` as `Creado` FROM `adm_usuario`"
+
+    ' si esta en pantalla para usuario, agregar filtro al sql para el grid.. asi solo muestra uno
+    If Comp($usuariofiltro, "", gb.IgnoreCase) <> 0 Then
+        If Comp($usuariofiltro, $usuariologin) = 0 Then sqltodos = sqltodos & " WHERE nombre_usuario LIKE '" & $usuariologin & "'"
+        If Comp($usuariofiltro, "sinalumnos") = 0 Then sqltodos = sqltodos & " WHERE tipo_usuario <> 'ALUMNO'"
+        If Comp($usuariofiltro, "conalumnos") = 0 Then sqltodos = sqltodos & " WHERE tipo_usuario LIKE 'ALUMNO'"
+    Endif
+    sqlmiuser = sqlmiuser & " WHERE intranet = '" & $usuariologin & "'"
+
+    ' traer la data para la parte de ariba, mostrar al usuario sus datos personales y de sesion
+    Error.Clear
+    Try resultadodatauser = $datadesdedb[1].Exec(sqlmiuser)
+    If Not Error Then                                       ' si no hay datos o ocurre error dejar la info inicial arriba
+        If resultadodatauser.Available Then
+            ustextuserinfo.Text = "Usuario actual: " & resultadodatauser!nombre & " (" & resultadodatauser!nombre_usuario & "), " & resultadodatauser!tipo_usuario & ", " & resultadodatauser!condicion & "\nCreado: " & resultadodatauser!fecha_ingreso & "\nAlterado: " & resultadodatauser!Alterado & ""
+            ususerdatagrid.setHeads = True
+            ususerdatagrid.source = resultadodatauser
+        Endif
+    Endif
+
+    ' la misma pantalla la uso para el modo reporte, solo que traigo todo y lo coloco en el grid debajo, sino solo el usuario
+    Error.Clear
+    Try resultadodatausrs = $datadesdedb[1].Exec(sqltodos)
+    If Comp($usuariofiltro, $usuariologin, gb.IgnoreCase) <> 0 And Not Error Then
+        If resultadodatausrs.Available Then                  ' si no hay datos o ocurre error dejar la info inicial arriba
+            ususerdatagrid.setHeads = True
+            ususerdatagrid.Rows.Count = resultadodatausrs.Count
+            ususerdatagrid.source = resultadodatausrs
+        Endif
+    Endif
+    
+End
+
+
+Public Sub ususerdatagrid_Click()
+
+    uspanelupdateinput.Visible = True
+    uspanelupdateinput.Show
+    usdatainput.Text = ususerdatagrid.Current.Text
+    If Comp(Trim(ususerdatagrid.Current.Text), "") = 0 Then
+        usdatainput.Text = ususerdatagrid.Current.RichText
+    Endif
+
+End

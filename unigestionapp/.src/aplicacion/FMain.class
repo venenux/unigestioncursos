@@ -1,0 +1,67 @@
+' Gambas class file
+
+Public $datadesdedb As Connection[]
+Public $configurado As Collection
+Private $usuariologin As String = ""
+
+Public Sub Form_Open()
+    
+    $usuariologin = "admin"
+    
+End
+
+
+
+Public Sub Menu03_Click()
+
+    FMain.Close
+    MMain.salirycerrar
+
+End
+
+Public Sub Menu02_Click()
+
+    FMain.Close
+    MMain.Main
+
+End
+
+Public Sub Menu01_Click()
+
+    Usession.$usuariologin = $usuariologin     ' mostrar pantalla solo para datos de usuario
+    Usession.$configurado = $configurado
+    Usession.$datadesdedb = $datadesdedb
+    Usession.$usuariofiltro = $usuariologin     ' mostrar pantalla solo para datos de usuario
+    Usession.Show           ' al cerrarse usession este se encarga de devolver fmain normal
+
+End
+
+Public Sub Menu11_Click()
+
+    Usession.$usuariologin = $usuariologin     ' mostrar pantalla solo para datos de usuario
+    Usession.$configurado = $configurado
+    Usession.$datadesdedb = $datadesdedb
+    Usession.$usuariofiltro = "conalumnos"                ' mostrar pantalla de usuarios alumonos de cursos y alterarlos
+    Usession.Show           ' al cerrarse usession este se encarga de devolver fmain normal
+
+End
+
+Public Sub Menu12_Click()
+
+    Usession.$usuariologin = $usuariologin     ' mostrar pantalla solo para datos de usuario
+    Usession.$configurado = $configurado
+    Usession.$datadesdedb = $datadesdedb
+    Usession.$usuariofiltro = "sinalumnos"                ' mostrar pantalla de usuarios docentes/administrativos y alterarlos
+    Usession.Show           ' al cerrarse usession este se encarga de devolver fmain normal
+
+End
+
+Public Sub Menu14_Click()
+
+    Uentidad.$usuariologin = $usuariologin     ' mostrar pantalla solo para datos de sedes de este usuario si tiene permiso
+    Uentidad.$configurado = $configurado
+    Uentidad.$datadesdedb = $datadesdedb
+    Uentidad.$usuariofiltro = ""                ' aun no det4erminado, dependera de permisos de usuario
+    Uentidad.Show           ' al cerrarse usession este se encarga de devolver fmain normal
+
+End
