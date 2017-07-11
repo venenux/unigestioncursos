@@ -1,5 +1,5 @@
--- Lunes Jul  10 08:27:04 2017
--- Model: modelo    Version: 1.1
+-- 2017 07 11
+-- Model: modelo    Version: 1.1.1
 
 -- -----------------------------------------------------
 -- DB unigestiondb
@@ -11,14 +11,17 @@
 -- -----------------------------------------------------
 -- base de datos del lado de cada maquina que ejecuta la aplicacion cliente
 -- el cliente puede tener desconectado una db local en ram/sqlite
--- solo copiar las tablas usuario, localidad y relacion usuario_localidad/usuario_acceso
--- las tablas que altera solo son las app_xxxx y despues inserta todos los registros en db central
+-- solo copiar las tablas usuario, localidad y relacion usuario_localidad/usuario_acc
+-- las tablas que altera solo son las app_xxxx y despues inserta todos los registros 
 -- al terminar insertar en db central borra su db local para reconectar/salir
 
--- NOTA: para usar en SQLITE remover "COMMENT" ya que no lo soporta, solo pasar el DB unidbgestioncurso
-CREATE SCHEMA IF NOT EXISTS `unigestiondb` DEFAULT CHARACTER SET utf8 
--- para trabajo local/desconectado la db unidbgestioncurso se copia una parte a cada maquina, de manera opcional (para futuro)
+-- NOTA: para usar en SQLITE remover "COMMENT" ya que no lo soporta, solo pasar el DB
+CREATE SCHEMA IF NOT EXISTS `unigestiondb` DEFAULT CHARACTER SET utf;
+USE `unigestiondb`;
+-- para trabajo local/desconectado la db unidbgestioncurso se copia una parte a cada 
 
+
+START TRANSACTION;
 
 
 -- -----------------------------------------------------
@@ -106,7 +109,7 @@ CREATE  TABLE IF NOT EXISTS `adm_usuario` (
   `tipo_usuario` VARCHAR(40) NULL DEFAULT 'ALUMNO' COMMENT 'ALUMNO|ADMINISTRATIVO' ,
   `foto_binario` TEXT NULL DEFAULT NULL COMMENT 'encode64 de la foto para no tener en filesystem' ,
   `foto_usuario` VARCHAR(40) NULL COMMENT 'ruta de la foto en el filesystem' ,
-  `fecha_ingreso` VARCHAR(40) NOT NULL DEFAULT NULL COMMENT 'YYYYMMDD fecha que ingreso a operar/trabajar/asistir' ,
+  `fecha_ingreso` VARCHAR(40) NULL DEFAULT NULL COMMENT 'YYYYMMDD fecha que ingreso a operar/trabajar/asistir' ,
   `fecha_ultimavez` VARCHAR(40) NULL DEFAULT NULL COMMENT 'YYYYMMDD ultimo registro de sesion' ,
   `fecha_egreso` VARCHAR(40) NULL DEFAULT NULL COMMENT 'YYYYMMDD fecha que dejo de operar para siempre' ,
   `sessionflag` VARCHAR(40) NULL DEFAULT NULL COMMENT 'YYYYMMDDhhmmss + entidad + . + usuario : quien altero este registro' ,
@@ -384,3 +387,72 @@ CREATE  TABLE IF NOT EXISTS `ent_anuncios` (
   PRIMARY KEY (`cod_anuncio`) )
 COMMENT = 'datos de anuncios, se avisa como principal pivote de informa /* comment truncated */ /*cion, lado del aplicativo*/';
 
+COMMIT;
+-- -----------------------------------------------------
+-- Data for table `adm_entidad`
+-- -----------------------------------------------------
+START TRANSACTION;
+
+INSERT INTO `adm_entidad` (`cod_entidad`, `cod_juridico`, `cod_reservado1`, `cod_reservado2`, `cod_reservado3`, `cod_reservado4`, `abr_zona`, `abr_entidad`, `des_entidad`, `estado`, `tipo_entidad`, `clase_entidad`, `num_telefonofijo`, `num_extension`, `num_celularfijo`, `usr_encargado1`, `usr_encargado2`, `usr_encargado3`, `fecha_encargado1`, `fecha_encargado2`, `fecha_encargado3`, `fecha_inventario`, `cod_patrimonio`, `sessionflag`, `sessionficha`) VALUES ('000', '', NULL, NULL, NULL, NULL, 'CAP', 'SYS', 'Desarrolldores sede virtual', 'ACTIVO', 'AULA', 'EXTERNO', 'NULL', 'NULL', 'NULL', 'NULL', 'NULL', NULL, NULL, NULL, NULL, NULL, NULL, '20170212182001usuariocodentidad.usuarioi', '20170101000000inicial.admin');
+INSERT INTO `adm_entidad` (`cod_entidad`, `cod_juridico`, `cod_reservado1`, `cod_reservado2`, `cod_reservado3`, `cod_reservado4`, `abr_zona`, `abr_entidad`, `des_entidad`, `estado`, `tipo_entidad`, `clase_entidad`, `num_telefonofijo`, `num_extension`, `num_celularfijo`, `usr_encargado1`, `usr_encargado2`, `usr_encargado3`, `fecha_encargado1`, `fecha_encargado2`, `fecha_encargado3`, `fecha_inventario`, `cod_patrimonio`, `sessionflag`, `sessionficha`) VALUES ('001', '', NULL, NULL, NULL, NULL, 'CAP', 'RUI', 'Inces Los ruices', 'ACTIVO', 'OFICINA', 'NORMAL', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, '20170212182101usuariocodentidad.usuarioi', '20170101000000inicial.admin');
+INSERT INTO `adm_entidad` (`cod_entidad`, `cod_juridico`, `cod_reservado1`, `cod_reservado2`, `cod_reservado3`, `cod_reservado4`, `abr_zona`, `abr_entidad`, `des_entidad`, `estado`, `tipo_entidad`, `clase_entidad`, `num_telefonofijo`, `num_extension`, `num_celularfijo`, `usr_encargado1`, `usr_encargado2`, `usr_encargado3`, `fecha_encargado1`, `fecha_encargado2`, `fecha_encargado3`, `fecha_inventario`, `cod_patrimonio`, `sessionflag`, `sessionficha`) VALUES ('002', '', NULL, NULL, NULL, NULL, 'MIR', 'TEQ', 'Ince Los teques', 'ACTIVO', 'OFICINA', 'NORMAL', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, '20170212192001usuariocodentidad.usuarioi', '20170101000000inicial.admin');
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `adm_entidad_usuario`
+-- -----------------------------------------------------
+START TRANSACTION;
+
+INSERT INTO `adm_entidad_usuario` (`cod_entidad`, `cod_usuario`, `sessionflag`, `sessionficha`) VALUES ('000', '99999990', NULL, NULL);
+INSERT INTO `adm_entidad_usuario` (`cod_entidad`, `cod_usuario`, `sessionflag`, `sessionficha`) VALUES ('001', '99999990', NULL, NULL);
+INSERT INTO `adm_entidad_usuario` (`cod_entidad`, `cod_usuario`, `sessionflag`, `sessionficha`) VALUES ('002', '99999990', NULL, NULL);
+INSERT INTO `adm_entidad_usuario` (`cod_entidad`, `cod_usuario`, `sessionflag`, `sessionficha`) VALUES ('001', '99999980', NULL, NULL);
+INSERT INTO `adm_entidad_usuario` (`cod_entidad`, `cod_usuario`, `sessionflag`, `sessionficha`) VALUES ('002', '99999980', NULL, NULL);
+INSERT INTO `adm_entidad_usuario` (`cod_entidad`, `cod_usuario`, `sessionflag`, `sessionficha`) VALUES ('001', '99999910', NULL, NULL);
+INSERT INTO `adm_entidad_usuario` (`cod_entidad`, `cod_usuario`, `sessionflag`, `sessionficha`) VALUES ('001', '99999920', NULL, NULL);
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `adm_usuario`
+-- -----------------------------------------------------
+START TRANSACTION;
+
+INSERT INTO `adm_usuario` (`cod_usuario`, `intranet`, `clave`, `realm`, `nombre`, `origen`, `condicion`, `estado`, `tipo_usuario`, `foto_binario`, `foto_usuario`, `fecha_ingreso`, `fecha_ultimavez`, `fecha_egreso`, `sessionflag`, `sessionficha`) VALUES ('99999990', 'admin', 'c4ca4238a0b923820dcc509a6f75849b', 'NULL', 'Administrador sistema', NULL, 'clave md5 (1)', 'ACTIVO', 'ADMINISTRATIVO', 'NULL', NULL, '20170101000000inicial.admin', 'NULL', NULL, 'NULL', '20170101000000inicial.admin');
+INSERT INTO `adm_usuario` (`cod_usuario`, `intranet`, `clave`, `realm`, `nombre`, `origen`, `condicion`, `estado`, `tipo_usuario`, `foto_binario`, `foto_usuario`, `fecha_ingreso`, `fecha_ultimavez`, `fecha_egreso`, `sessionflag`, `sessionficha`) VALUES ('99999980', 'direccion', 'c4ca4238a0b923820dcc509a6f75849b', NULL, 'Gerencia direccion', NULL, 'BASE', 'ACTIVO', 'ADMINISTRATIVO', NULL, NULL, '20170101000000inicial.admin', NULL, NULL, '20170101000000inicial.admin', '20170101000000inicial.admin');
+INSERT INTO `adm_usuario` (`cod_usuario`, `intranet`, `clave`, `realm`, `nombre`, `origen`, `condicion`, `estado`, `tipo_usuario`, `foto_binario`, `foto_usuario`, `fecha_ingreso`, `fecha_ultimavez`, `fecha_egreso`, `sessionflag`, `sessionficha`) VALUES ('99999910', 'alumno1', 'c4ca4238a0b923820dcc509a6f75849b', NULL, 'Direnzano julio', 'CARAPITA', 'BASE', 'ACTIVO', 'ADMINISTRATIVO', NULL, NULL, '20170101010000inicial.admin', NULL, NULL, NULL, '20170101000000inicial.admin');
+INSERT INTO `adm_usuario` (`cod_usuario`, `intranet`, `clave`, `realm`, `nombre`, `origen`, `condicion`, `estado`, `tipo_usuario`, `foto_binario`, `foto_usuario`, `fecha_ingreso`, `fecha_ultimavez`, `fecha_egreso`, `sessionflag`, `sessionficha`) VALUES ('99999920', 'alumno2', 'c4ca4238a0b923820dcc509a6f75849b', NULL, 'Perenzano angel', 'CARICUAO', 'BASE', 'ACTIVO', 'ADMINISTRATIVO', NULL, NULL, '20170101020000inicial.admin', NULL, NULL, '20170101000000inicial.admin', '20170101000000inicial.admin');
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `adm_localidad`
+-- -----------------------------------------------------
+START TRANSACTION;
+
+INSERT INTO `adm_localidad` (`cod_localidad`, `des_localidad`, `des_direccion`, `tipo_localidad`, `estado`, `sessionflag`, `sessionficha`) VALUES ('20170000000001', 'OP CAP', 'Oficina Principal Caracas av xxx cruze calle', 'ADMINISTRATIVA', 'ACTIVO', 'NULL', 'NULL');
+INSERT INTO `adm_localidad` (`cod_localidad`, `des_localidad`, `des_direccion`, `tipo_localidad`, `estado`, `sessionflag`, `sessionficha`) VALUES ('20170000000002', 'OP TEQ', 'Los teques centro', 'ADMINISTRATIVA', 'ACTIVA', 'NULL', 'NULL');
+INSERT INTO `adm_localidad` (`cod_localidad`, `des_localidad`, `des_direccion`, `tipo_localidad`, `estado`, `sessionflag`, `sessionficha`) VALUES ('20170000000003', 'OP Ruices', 'Zona Industrial al lado metro', 'ADMINISTRATIVA', 'ACTIVO', 'NULL', 'NULL');
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `adm_entidad_localidad`
+-- -----------------------------------------------------
+START TRANSACTION;
+
+INSERT INTO `adm_entidad_localidad` (`cod_entidad`, `cod_localidad`, `sessionflag`, `sessionficha`) VALUES ('000', '20170000000001', NULL, NULL);
+INSERT INTO `adm_entidad_localidad` (`cod_entidad`, `cod_localidad`, `sessionflag`, `sessionficha`) VALUES ('002', '20170000000002', NULL, NULL);
+INSERT INTO `adm_entidad_localidad` (`cod_entidad`, `cod_localidad`, `sessionflag`, `sessionficha`) VALUES ('001', '20170000000003', NULL, NULL);
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `ent_anuncios`
+-- -----------------------------------------------------
+START TRANSACTION;
+
+INSERT INTO `ent_anuncios` (`cod_anuncio`, `cod_entidad`, `cod_maquina`, `des_anuncio`, `det_anuncio`, `estado`, `tipo_anuncio`, `clase_anuncio`, `sessionflag`, `sessionficha`) VALUES ('20000000000000', NULL, NULL, 'Bienvenido', 'Buenas, este es el programa de gestion de cursos', 'PUBLICADO', 'INTERNO', 'NORMAL', '20170101000000inicial.admin', '20170101000000inicial.admin');
+
+COMMIT;
