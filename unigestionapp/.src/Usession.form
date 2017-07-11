@@ -1,0 +1,17 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,69,40)
+  { ususerdatagrid exGridview
+    MoveScaled(6,13,55,18)
+  }
+  { usbtncerrar Button
+    MoveScaled(47,34,14,4)
+  }
+  { usbtnactualizar Button
+    MoveScaled(31,34,14,4)
+  }
+  { ustextuserinfo TextArea
+    MoveScaled(6,2,55,8)
+  }
+}

@@ -1,7 +1,3 @@
-[Bookmarks]
-exDbManage=[]
-exMtest=[]
-
 [Breakpoints]
 Count=0
 
@@ -37,8 +33,8 @@ Path="unigestionlib.gambas"
 
 [OpenFile]
 File[1]=".src/exModUtil.module:0.23"
-Active=6
-File[2]=".src/exMtest.module:3.22"
+Active=2
+File[2]=".src/exMtest.module:32.9"
 File[3]=".src/exDbManage.class:33.58"
 File[4]=".src/exCfgManage.class:3.83"
 File[5]=".src/exModSysNet.module:20.23"

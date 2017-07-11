@@ -1,7 +1,7 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,71,64)
+  MoveScaled(0,0,72,44)
   { Menu0 Menu
     Text = ("Programa")
     { Menu01 Menu
@@ -65,7 +65,12 @@
   { Menu3line Menu
   }
   { piclogo1inces PictureBox
-    MoveScaled(49,0,22,21)
+    MoveScaled(40,2,22,21)
     Picture = Picture[".hidden/logoinces.png"]
+  }
+  { PictureBox1 PictureBox
+    MoveScaled(54,23,17,17)
+    Picture = Picture[".hidden/venenuxlogo.png"]
+    Stretch = True
   }
 }

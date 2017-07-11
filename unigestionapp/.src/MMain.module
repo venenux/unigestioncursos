@@ -12,25 +12,64 @@
 'To store provided username and password on form FLogin for later use on form FMain
 Public UserName As String
 Public UserPass As String
+Public $datadesdedb As Connection[]
+Public $configurado As Collection
+Public inicializado As Boolean = False
+
+Public Sub inicializar()    '' inicia la configuracion y crea las conexciones a db segun la configuracion
+    
+    Dim objconfs As New ExCfgManage
+    Dim objdbcon As New ExDbManage
+    
+    Print "creando archivo configuracion, y preparando db segun este:"
+    $configurado = objconfs.configuracion
+    Print "creacion/lectura archivo configuracion: " & objconfs.configurado
+    $datadesdedb = objdbcon.conexciones
+    Print "creacion/conesciones a bases de datos: " & objdbcon.exconnavailable
+    
+    If objconfs.configurado And objdbcon.exconnavailable Then inicializado = True
+    
+End
 
 Public Sub Main()
-
-  Dim respuesta As Integer = 0
-  'Open form FLogin as Modal
-  respuesta = FLogin.ShowModal()
-  If CBool(respuesta) Then
-    ' login es -1 o true, levante el formulario de gestion cursos
-    FMain.Show
-  Else
-    ' reintenta una vez mas
-    respuesta = FLogin.ShowModal()
-    If respuesta Then
-      ' login true o -1 levanta el main
-      FMain.Show
+    
+    Dim respuesta As Integer = 0
+    If Not inicializado Then inicializar()
+    
+    respuesta = FLogin.ShowModal()      ' levanto una ventada en modo "temporal" retornara algo al cerrar/return
+    If respuesta = -1 Then
+        FMain.$configurado = $configurado   ' pasa la configuracion
+        FMain.$datadesdedb = $datadesdedb   ' pasa la conexcino a db
+        FMain.Show                      ' login es -1 o true, levante el formulario de gestion cursos
     Else
-      Message.Error("credenciales incorrectas saliendo")
-      Quit
+        If respuesta = 1 Then           ' si es cancelar, sale, 
+            salirycerrar                ' sino reintenta una vez mas
+        Endif
+        respuesta = FLogin.ShowModal()  ' reintenta una vez mas
+        If respuesta = -1 Then
+            FMain.$configurado = $configurado   ' pasa la configuracion
+            FMain.$datadesdedb = $datadesdedb   ' pasa la conexcino a db
+            FMain.Show                  ' login true o -1 levanta el main gestion de cursos
+        Else
+            Message.Error("credenciales incorrectas saliendo")
+            salirycerrar
+        Endif
     Endif
-  Endif
+    
+End
 
+Public Sub salirycerrar()
+    
+    Dim conexcion As Connection
+    ' liberar bases de datos, salvar la config
+    For Each conexcion In $datadesdedb
+        If conexcion.Opened Then conexcion.Close
+    Next
+    ' libera los recursos y asegura cerrar todo
+    If Not FMain.Closed Then
+        FMain.Close
+    Endif
+    ' finaliza el programa, ya que quien arranca es este un modulo no un form
+    Quit
+    
 End

@@ -50,6 +50,10 @@ m
 
 [(autoiniciardbs)b]
 'prepara una instancia del pool de las conexciones a las bases de datos, el error si alguno ocurre esta en el ultimo elemento
+#exFormLogin
+
+C
+'futuro form de login
 #exGridview
 GridView
 C

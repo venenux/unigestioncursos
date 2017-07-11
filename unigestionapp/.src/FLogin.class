@@ -1,6 +1,14 @@
 ' Gambas class file
 
-Public Sub loginbtn_Click()
+Public Sub Form_Open()
+
+  btnlogin.Text = "Entrar interfaz"
+  btnsalir.Text = "Salir y cerrar"
+
+End
+
+
+Public Sub btnlogin_Click()
   
   Dim seguir1, seguir2 As Boolean = False
   
@@ -17,3 +25,8 @@ Public Sub loginbtn_Click()
   
 End
 
+Public Sub btnsalir_Click()
+  
+  Me.Close(1)
+  
+End

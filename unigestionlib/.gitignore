@@ -11,3 +11,6 @@ vgcore.*
 .lang/*.pot
 .gambas/*
 #----
+
+# exceptuar la libreria por ahora subirla para que vean
+!unigestionlib.gambas

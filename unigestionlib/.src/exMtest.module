@@ -1,12 +1,14 @@
 ' Gambas module file
 
+Private $datadesdedb As Connection[]
+Private $configurado As Collection
+
+
 
 Public Function main()
     
   Dim objconfs As New ExCfgManage
   Dim objdbcon As New ExDbManage
-  Dim $datadesdedb As Connection[]
-  Dim $configurado As Collection
 
     Print exModSysNet.getIfdef()
     Print exModSysNet.getIpall()[1]
