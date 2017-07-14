@@ -1,7 +1,12 @@
- --- [HOME](docs/README.md) --- [FOTOS](docs/READMEFOTOS.md) --- [DISEÑO](docs/READMEDISENO.md) --- [MODULOS](READMEMENU.md) ---
+ --- [HOME](README.md) --- [FOTOS](READMEFOTOS.md) --- [DISEÑO](READMEDISENO.md) --- [MODULOS](READMEMENU.md) ---
 
 Como trabajar este proyecto?
 ============================
+
+*OJO* estas instrucciones son para desarrollar!
+
+Para instalar solo instale el paquete.
+
 
 1. Se necesita **tener linux** y el siguiente software:
   + Si tiene bajos recursos o no tiene pc, descargar y grabar este linux: 

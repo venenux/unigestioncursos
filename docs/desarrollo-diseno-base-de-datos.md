@@ -1,4 +1,4 @@
- --- [HOME](docs/README.md) --- [FOTOS](docs/READMEFOTOS.md) --- [DISEÑO](docs/READMEDISENO.md) --- [MODULOS](READMEMENU.md) ---
+ --- [HOME](README.md) --- [FOTOS](READMEFOTOS.md) --- [DISEÑO](READMEDISENO.md) --- [MODULOS](READMEMENU.md) ---
 
 # Diseño de datos
 

@@ -1,4 +1,4 @@
- --- [HOME](docs/README.md) --- [FOTOS](docs/READMEFOTOS.md) --- [DISEÑO](docs/READMEDISENO.md) --- [MODULOS](READMEMENU.md) ---
+ --- [HOME](README.md) --- [FOTOS](READMEFOTOS.md) --- [DISEÑO](READMEDISENO.md) --- [MODULOS](READMEMENU.md) ---
 
 Diseño arquitectonico
 =====================
@@ -14,18 +14,18 @@ de datos contempla sedes Inces multiples.
 
 Indice de contenido:
 
-[Elementos estructurales](#elementos-estructurales)
-  [Hardware disponible](#hardware-disponible)
-  [Software de desarrollo](#software-de-desarrollo)
-  [Software Base de datos](#software-base-de-datos)
-  [Software Control de fuentes](#software-control-de-fuentes
-  [Planificacion](#planificacion)
-[Descomposicion modular](#descomposicion-modular)
-  [Casos de uso y modulos](#casos-de-uso-y-modulos)
-[Diseño de modelos](#diseno-de-modelos)
-  [Modelo de datos](#modelo-de-datos)
-  [Diccionario de datos](#diccionario-de-datos)
-  [Modelo de clases](#modelo-de-clases)
+* [Elementos estructurales](#elementos-estructurales)
+   * [Hardware disponible](#hardware-disponible)
+   * [Software de desarrollo](#software-de-desarrollo)
+   * [Software Base de datos](#software-base-de-datos)
+   * [Software Control de fuentes](#software-control-de-fuentes
+   * [Planificacion](#planificacion)
+* [Descomposicion modular](#descomposicion-modular)
+   * [Casos de uso y modulos](#casos-de-uso-y-modulos)
+* [Diseño de modelos](#diseno-de-modelos)
+   * [Modelo de datos](#modelo-de-datos)
+   * [Diccionario de datos](#diccionario-de-datos)
+   * [Modelo de clases](#modelo-de-clases)
 
 Elementos estructurales
 -----------------------
