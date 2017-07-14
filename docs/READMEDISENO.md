@@ -86,13 +86,14 @@ Porque gitlab?: porque ofrece gestion de projectos, github no ofrece un gestor d
 
 ### Planificacion
 
-La planificacion en : [desarrollo-planificacion.md](desarrollo-planificacion.md)
+La planificacion en : [desarrollo-planificacion](desarrollo-planificacion.md)
 
 Descomposicion modular
 -----------------------
 
 El desarrollo se agiliza descomponiendo los procesos y funcionalidades en modulos, 
 cada modulo atiende una parte especifica de procesos y funciones relacionados.
+Documentacion en el documento de modulos: [READMEMENU](READMEMENU.md)
 
 | modulo    | descripcion                                  | caso de uso                   |
 | --------- | -------------------------------------------- | ----------------------------- |
@@ -109,7 +110,7 @@ esto permite que los cambios realizados por gerencia apliquen al instante.
 
 ### Casos de uso y modulos
 
-Documentado en el documento de modulos: [READMEMENU.md](READMEMENU.md)
+Documentado en: [desarrollo-matrix-casos-de-uso](desarrollo-matrix-casos-de-uso.md)
 
 Diseño de modelos
 =================
@@ -123,14 +124,14 @@ Modelo de datos
 
 Informacion del diseño del modelo de datos, esta en el documento 
 del proyecto en `mysqlworkbench`: [gitlab file]() 
-La documentacion: [desarrollo-diseno-base-de-datos.md](desarrollo-diseno-base-de-datos.md)
+La documentacion: [desarrollo-diseno-base-de-datos](desarrollo-diseno-base-de-datos.md)
 
 Diccionario de datos
 --------------------
 
 Es generado a partir del modelo de datos, cada columna y tabla diseñada tiene 
 su comentario descriptivo explicando brevemente la funcionalidad relacionada.
-La documentacion: [desarrollo-diseno-base-de-datos.md](desarrollo-diseno-base-de-datos.md)
+La documentacion: [desarrollo-diseno-base-de-datos](desarrollo-diseno-base-de-datos.md)
 
 ![screenshot00disenomodelodedatos1.png](screenshot00disenomodelodedatos1.png)
 

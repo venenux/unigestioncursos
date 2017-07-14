@@ -1,0 +1,464 @@
+commit f58f72cb56b94e98d6a7190c15708d8eb825f7b8
+Author: PICCORO Lenz McKAY <mckaygerhard@gmail.com>
+Date:   Fri Jul 14 17:15:45 2017 -0400
+
+    diseño, clases, casos de uso, presentacion, docuemntacion, y web
+    * se acomodo la presentacion: https://gitlab.com/venenux/unigestioncursos/blob/master/docs/documentos/estructura-III-docto_DISeno-ARQ.odp
+    * corregida matrix de casos de uso: https://gitlab.com/venenux/unigestioncursos/blob/master/docs/proyecto-matrix-casos-de-uso.ods
+    * fotos de la aplicacion grafica: https://gitlab.com/venenux/unigestioncursos/blob/master/docs/fotosapps/
+    * estructura de documentacion markdown: https://gitlab.com/venenux/unigestioncursos/blob/master/docs/README.md
+    * mirror gitlab con pagina web estructurad en este docs: https://venenux.github.io/unigestioncursos/
+    * docuemnto de caso de uso general: https://gitlab.com/venenux/unigestioncursos/blob/master/docs/docs/proyecto-matrix-casos-de-uso.md
+    * documentos de diseño, modulos y base de datos ajustados y creados
+    * preliminar del docupmento de planificacion: https://gitlab.com/venenux/unigestioncursos/blob/master/docs/desarrollo-planificacion.md
+
+:100644 100644 d7d707f... c397338... M	README.md
+:100644 000000 c42381e... 0000000... D	docs/Estructura del III docto_DISEnO ARQ-1.odp
+:100644 000000 cb0c062... 0000000... D	docs/Estructura del III docto_DISeno ARQ.odp
+:000000 100644 0000000... 98b0c95... A	docs/README.md
+:000000 100644 0000000... bef742f... A	docs/READMEDISENO.md
+:000000 100644 0000000... cdcfe83... A	docs/READMEFOTOS.md
+:000000 100644 0000000... 71b9822... A	docs/READMEMENU.md
+:000000 100644 0000000... c42381e... A	docs/archivos/Estructura del III docto_DISEnO ARQ-1.odp
+:000000 100644 0000000... cb0c062... A	docs/archivos/Estructura del III docto_DISeno ARQ.odp
+:000000 100644 0000000... 84e49ef... A	docs/archivos/proyect II Mancomunado.odt
+:000000 100644 0000000... e27e4cd... A	docs/desarrollo-como-empezar.md
+:000000 100644 0000000... 5746c25... A	docs/desarrollo-diseno-base-de-datos.md
+:100644 000000 fddc2e4... 0000000... D	docs/desarrollo-modelo-seguir.md
+:000000 100644 0000000... 0eeb58a... A	docs/desarrollo-planificacion.md
+:100644 000000 25b714f... 0000000... D	docs/diseno-base-de-datos.md
+:100644 000000 f369563... 0000000... D	docs/diseno-modulos-de-desarrollo.md
+:000000 100644 0000000... 9ccc825... A	docs/documentos/diseno-diagrama-de-clases.dia
+:000000 100644 0000000... 64f34be... A	docs/documentos/diseno-diagrama-de-clases.png
+:000000 100644 0000000... c6f219f... A	docs/documentos/estructura-III-docto_DISeno-ARQ.odp
+:000000 100644 0000000... db52eb8... A	docs/documentos/estructura-III-docto_DISeno-ARQ.pdf
+:000000 100644 0000000... 68f9fe6... A	docs/documentos/proyecto-matrix-casos-de-uso.ods
+:000000 100644 0000000... e3a4f68... A	docs/documentos/unigestiondb-unidbcentral.png
+:000000 100644 0000000... 74bc7c0... A	docs/fotosapps/screenshot00disenomodelodedatos.png
+:000000 100644 0000000... 1187596... A	docs/fotosapps/screenshot00disenomodelodedatos1.png
+:000000 100644 0000000... 11c24a9... A	docs/fotosapps/screenshot00disenomodelodedatos2.png
+:000000 100644 0000000... 42fa734... A	docs/fotosapps/screenshot00idedesarrollo1.png
+:000000 100644 0000000... f0ca1bf... A	docs/fotosapps/screenshot01login.png
+:000000 100644 0000000... b7962c3... A	docs/fotosapps/screenshot02principal.png
+:000000 100644 0000000... acea220... A	docs/fotosapps/screenshot03programa01sesion.png
+:000000 100644 0000000... 826841a... A	docs/fotosapps/screenshot04entidades03usuarios.png
+:000000 100644 0000000... a188258... A	docs/fotosapps/screenshot04entidades04sedes-o-aulas.png
+:000000 100644 0000000... 46c1f97... A	docs/fotosapps/screenshot04entidades05cursosadministrar.png
+:000000 100644 0000000... d087c8f... A	docs/fotosapps/screenshot05procesos04registrar.png
+:000000 100644 0000000... 11a4648... A	docs/proyecto-matrix-casos-de-uso.md
+:100644 000000 ed42586... 0000000... D	docs/screenshot01login.png
+:100644 000000 aca6a1a... 0000000... D	docs/screenshot02principal.png
+
+commit 2a16f1f4ae64c8c1b5201a0b888a563b2e940e84
+Author: PICCORO Lenz McKAY <mckaygerhard@gmail.com>
+Date:   Fri Jul 14 12:12:35 2017 -0400
+
+    Actualizada info de README, para nuevo contenido
+
+:100644 100644 6465b52... d7d707f... M	README.md
+
+commit 91bf327088f2f6e13f214f477025e67d6fbb0298
+Author: PICCORO Lenz McKAY <mckaygerhard@gmail.com>
+Date:   Thu Jul 13 23:04:53 2017 -0400
+
+    ventana principal definir salir apropiadamente, sino se queda(devuelve) en main
+
+:100644 100644 c98dd4f... 6c08df0... M	unigestionapp/.src/aplicacion/FMain.class
+
+commit 4737bf98393afac625ddaf013955dd9cff7033de
+Author: PICCORO Lenz McKAY <mckaygerhard@gmail.com>
+Date:   Thu Jul 13 22:36:44 2017 -0430
+
+    ventanas funcionando, inicio ajustado, ventana libera recurso correcto
+    * no redundancia al pulsar boton cerrar, y o rellamada al ejecutar accion cerrar
+    * compatibilidad con gambas 3.1 para debian wheeze por si son canaimas viejas
+    * enlace a db corregido en la db versin sqlite
+
+:100644 100644 5b1305e... ac8814f... M	unigestionapp/.info
+:100644 100644 3878e41... e8980f5... M	unigestionapp/.project
+:100644 100644 b33947b... df1bdc9... M	unigestionapp/.settings
+:100644 100644 1871942... 872c166... M	unigestionapp/.src/MMain.module
+:100644 100644 7750165... c2f9ddb... M	unigestionapp/.src/aplicacion/FLogin.class
+:100644 100644 f256820... c98dd4f... M	unigestionapp/.src/aplicacion/FMain.class
+:100644 100644 3a6334e... 0959536... M	unigestionapp/.startup
+:120000 120000 ca44b7f... 38ec578... M	unigestionapp/unigestiondb.sqlite
+
+commit 767cfde85a959d30dda04328650915a5555d1675
+Author: PICCORO Lenz McKAY <mckaygerhard@gmail.com>
+Date:   Thu Jul 13 22:03:11 2017 -0400
+
+    simplificado y creado menu de registro y menu de cursos, con sus ventanas de aplicacion
+    * nueva accion de menu certificacion, que emitira los certificados
+    * nueva ventana y accion de menu registrar, que ingresa los alumnos
+    * nueva ventana y accion de menu cursos, que registra o altera los cursos
+    * REORGANIZADO simplificado, en un solo proyecto gambas todo..
+    * SIMPLIFICADO mudado todas las utilidades a un directorio "componentes"
+    * reoganizado: un modulo MMAin que llama las ventanas principal
+    * ventana principal llama las ventanas de procesos y acciones
+    * adicionado base de dtos local sqlite, en futuro se proveera mecanismo de cambio
+
+:000000 100644 0000000... 6539885... A	modelodb/unigestiondb.sqlite
+:000000 100644 0000000... 173ac56... A	unigestionapp/.action/exgridfilterf.action
+:100644 100644 604e895... 8748600... M	unigestionapp/.icon.png
+:000000 100644 0000000... 5b1305e... A	unigestionapp/.info
+:000000 100644 0000000... 766e0d1... A	unigestionapp/.list
+:100644 100644 85dc05c... 3878e41... M	unigestionapp/.project
+:100644 100644 2aa5b08... b33947b... M	unigestionapp/.settings
+:100644 100644 af24975... 1871942... M	unigestionapp/.src/MMain.module
+:000000 100644 0000000... a61c430... A	unigestionapp/.src/aplicacion/Ecursos.class
+:000000 100644 0000000... a5b4e08... A	unigestionapp/.src/aplicacion/Ecursos.form
+:100644 100644 33d2ba4... b0415c6... M	unigestionapp/.src/aplicacion/FLogin.form
+:100644 100644 f494e7b... f256820... M	unigestionapp/.src/aplicacion/FMain.class
+:100644 100644 90b6795... 54f2cd1... M	unigestionapp/.src/aplicacion/FMain.form
+:000000 100644 0000000... 0e9a041... A	unigestionapp/.src/aplicacion/Uregistro.class
+:000000 100644 0000000... b0ebe39... A	unigestionapp/.src/aplicacion/Uregistro.form
+:000000 100644 0000000... 90ee1b2... A	unigestionapp/.src/componentes/exCfgManage.class
+:000000 100644 0000000... b2a6c38... A	unigestionapp/.src/componentes/exDbManage.class
+:000000 100644 0000000... 872d143... A	unigestionapp/.src/componentes/exFormLogin.class
+:000000 100644 0000000... 8700e43... A	unigestionapp/.src/componentes/exGridview.class
+:000000 100644 0000000... 7ed478f... A	unigestionapp/.src/componentes/exModSysFile.module
+:000000 100644 0000000... fb17484... A	unigestionapp/.src/componentes/exModSysInfo.module
+:000000 100644 0000000... da1af52... A	unigestionapp/.src/componentes/exModSysNet.module
+:000000 100644 0000000... 9457e3b... A	unigestionapp/.src/componentes/exModUtil.module
+:000000 100644 0000000... 533ec49... A	unigestionapp/.src/componentes/exMtest.module
+:000000 100644 0000000... cdf8e05... A	unigestionapp/.src/componentes/exgridfilter.class
+:000000 100644 0000000... 402b14e... A	unigestionapp/.src/componentes/exgridfilterf.class
+:000000 100644 0000000... c548f74... A	unigestionapp/.src/componentes/exgridfilterf.form
+:000000 100644 0000000... 3a6334e... A	unigestionapp/.startup
+:000000 120000 0000000... ca44b7f... A	unigestionapp/unigestiondb.sqlite
+:100644 100644 83f93a9... 121c2f9... M	unigestionapp/unigestiondevel.conf
+:100755 000000 c066438... 0000000... D	unigestionapp/unigestionlib.gambas
+:100644 000000 173ac56... 0000000... D	unigestionlib/.action/exgridfilterf.action
+:100644 000000 79d41a1... 0000000... D	unigestionlib/.component
+:100644 000000 06dab1c... 0000000... D	unigestionlib/.directory
+:100644 000000 d13cbc9... 0000000... D	unigestionlib/.gitignore
+:100644 000000 9cd7eeb... 0000000... D	unigestionlib/.hidden/control/exgridfilter.png
+:100644 000000 48f14b9... 0000000... D	unigestionlib/.hidden/control/exgridview.png
+:100644 000000 2406ea3... 0000000... D	unigestionlib/.hidden/icons/multipart-encrypted.png
+:100644 000000 399e015... 0000000... D	unigestionlib/.hidden/icons/search-x-info.png
+:100644 000000 31f4733... 0000000... D	unigestionlib/.hidden/icons/search-x-play.png
+:100644 000000 ed43950... 0000000... D	unigestionlib/.hidden/icons/search-x-restart.png
+:100644 000000 211b927... 0000000... D	unigestionlib/.hidden/icons/search-x-search.png
+:100644 000000 0e2485c... 0000000... D	unigestionlib/.hidden/icons/text-x-texinfo.png
+:100644 000000 edb8191... 0000000... D	unigestionlib/.hidden/icons/view-refresh.png
+:100644 000000 8748600... 0000000... D	unigestionlib/.icon.png
+:100644 000000 1ff8ca8... 0000000... D	unigestionlib/.info
+:100644 000000 55b5c42... 0000000... D	unigestionlib/.list
+:100644 000000 488d1f2... 0000000... D	unigestionlib/.project
+:100644 000000 ba708aa... 0000000... D	unigestionlib/.settings
+:100644 000000 90ee1b2... 0000000... D	unigestionlib/.src/exCfgManage.class
+:100644 000000 b2a6c38... 0000000... D	unigestionlib/.src/exDbManage.class
+:100644 000000 872d143... 0000000... D	unigestionlib/.src/exFormLogin.class
+:100644 000000 8700e43... 0000000... D	unigestionlib/.src/exGridview.class
+:100644 000000 7ed478f... 0000000... D	unigestionlib/.src/exModSysFile.module
+:100644 000000 fb17484... 0000000... D	unigestionlib/.src/exModSysInfo.module
+:100644 000000 da1af52... 0000000... D	unigestionlib/.src/exModSysNet.module
+:100644 000000 9457e3b... 0000000... D	unigestionlib/.src/exModUtil.module
+:100644 000000 533ec49... 0000000... D	unigestionlib/.src/exMtest.module
+:100644 000000 cdf8e05... 0000000... D	unigestionlib/.src/exgridfilter.class
+:100644 000000 bd341f2... 0000000... D	unigestionlib/.src/exgridfilterf.class
+:100644 000000 c548f74... 0000000... D	unigestionlib/.src/exgridfilterf.form
+:100644 000000 83f93a9... 0000000... D	unigestionlib/unigestiondevel.conf
+:100755 000000 c066438... 0000000... D	unigestionlib/unigestionlib.gambas
+
+commit a0616564846daf249ff526846c2bb6d588e50638
+Author: PICCORO Lenz McKAY <mckaygerhard@gmail.com>
+Date:   Thu Jul 13 20:31:07 2017 -0400
+
+    cuando base de datos no conecte verificar data no sea nula y no reviente el app
+
+:100644 100644 5e1d2ed... af24975... M	unigestionapp/.src/MMain.module
+:100644 100644 bd941ea... 1c6a15d... M	unigestionapp/.src/aplicacion/Uentidad.class
+
+commit d5f79ca0b2e662c9e6030457d54ee97799053e1c
+Author: PICCORO Lenz McKAY <mckaygerhard@gmail.com>
+Date:   Tue Jul 11 17:06:43 2017 -0400
+
+    pantalla de menu de sedes y administradores/docentes
+    * modificada la db ahora filtra alumnos o docentes/administrativos
+    * nueva pantalla de sedes
+    * reorganizado los archivos los imagenes en un directorio apropiado
+
+:000000 100644 0000000... 9cd7eeb... A	unigestionapp/.hidden/control/exgridfilter.png
+:000000 100644 0000000... 48f14b9... A	unigestionapp/.hidden/control/exgridview.png
+:000000 100644 0000000... 2406ea3... A	unigestionapp/.hidden/icons/multipart-encrypted.png
+:000000 100644 0000000... 399e015... A	unigestionapp/.hidden/icons/search-x-info.png
+:000000 100644 0000000... 31f4733... A	unigestionapp/.hidden/icons/search-x-play.png
+:000000 100644 0000000... ed43950... A	unigestionapp/.hidden/icons/search-x-restart.png
+:000000 100644 0000000... 211b927... A	unigestionapp/.hidden/icons/search-x-search.png
+:000000 100644 0000000... 0e2485c... A	unigestionapp/.hidden/icons/text-x-texinfo.png
+:000000 100644 0000000... edb8191... A	unigestionapp/.hidden/icons/view-refresh.png
+:000000 100644 0000000... 395fde0... A	unigestionapp/.hidden/imagenes/logoinces.png
+:000000 100644 0000000... cea8dc4... A	unigestionapp/.hidden/imagenes/powered-venenux.jpg
+:000000 100644 0000000... fe3e892... A	unigestionapp/.hidden/imagenes/venenuxlogo.png
+:100644 000000 395fde0... 0000000... D	unigestionapp/.hidden/logoinces.png
+:100644 000000 cea8dc4... 0000000... D	unigestionapp/.hidden/powered-venenux.jpg
+:100644 000000 fe3e892... 0000000... D	unigestionapp/.hidden/venenuxlogo.png
+:100644 000000 7750165... 0000000... D	unigestionapp/.src/FLogin.class
+:100644 000000 ec1a07d... 0000000... D	unigestionapp/.src/FLogin.form
+:100644 000000 7e16be2... 0000000... D	unigestionapp/.src/FMain.class
+:100644 000000 b375182... 0000000... D	unigestionapp/.src/FMain.form
+:100644 000000 5501c8a... 0000000... D	unigestionapp/.src/Usession.class
+:100644 000000 3f68a2a... 0000000... D	unigestionapp/.src/Usession.form
+:000000 100644 0000000... 7750165... A	unigestionapp/.src/aplicacion/FLogin.class
+:000000 100644 0000000... 33d2ba4... A	unigestionapp/.src/aplicacion/FLogin.form
+:000000 100644 0000000... f494e7b... A	unigestionapp/.src/aplicacion/FMain.class
+:000000 100644 0000000... 90b6795... A	unigestionapp/.src/aplicacion/FMain.form
+:000000 100644 0000000... bd941ea... A	unigestionapp/.src/aplicacion/Uentidad.class
+:000000 100644 0000000... 1a04da9... A	unigestionapp/.src/aplicacion/Uentidad.form
+:000000 100644 0000000... cbfe0d3... A	unigestionapp/.src/aplicacion/Usession.class
+:000000 100644 0000000... 1aac927... A	unigestionapp/.src/aplicacion/Usession.form
+:000000 100644 0000000... 83f93a9... A	unigestionapp/unigestiondevel.conf
+
+commit 9b7a466326530d6c8a0f6faf66374e7e7b8aa27e
+Author: PICCORO Lenz McKAY <mckaygerhard@gmail.com>
+Date:   Tue Jul 11 15:58:22 2017 -0400
+
+    data ejemplo para desarrollar en la db, generado script sql data ejemplo
+    * un usuario admin, un director y dos alumnos
+    * 3 localidades, 3 sedes, asociadas a localidades
+    * usuarios asociados, admin esta en todos, alumnos solo en localidad 1
+
+:100644 100644 d2d1d50... 3ff69d3... M	modelodb/unigestiondb-completo.sql
+:100644 100644 7bf24b7... 80a760c... M	modelodb/unigestiondb.mwb
+
+commit 67215ac86713fa8dd71ea173f45abef7eed0496d
+Author: PICCORO Lenz McKAY <mckaygerhard@gmail.com>
+Date:   Tue Jul 11 13:26:42 2017 -0400
+
+    pantalla de inicio sesion, usuario e implementacino de libreria
+    * la libreria es usada por unigestionapp
+    * la libreria lee un archivo de configuracion, y establece la conex a db
+    * la aplicacion toma esto y lo establece para cada objeto/ventana
+    * se levanta la pantalla de login, por ahora no verifica credencviales
+    * una vez verificada credenciales abre la interfaz
+    * se establece salida asi como cierre de sesion en main y en principal
+    * ventana de usuario con datos de su sesion y botones
+    * cuando se abre la ventana de usuario se oculta la principal
+    * despues de cerrar la ventana de usuario se muestra la principal
+
+:100644 100644 cb95c3b... d13cbc9... M	unigestionapp/.gitignore
+:100644 100644 2d1a2d5... 395fde0... M	unigestionapp/.hidden/logoinces.png
+:000000 100644 0000000... cea8dc4... A	unigestionapp/.hidden/powered-venenux.jpg
+:000000 100644 0000000... fe3e892... A	unigestionapp/.hidden/venenuxlogo.png
+:100644 100644 3b5368f... 85dc05c... M	unigestionapp/.project
+:100644 100644 20d6e26... 2aa5b08... M	unigestionapp/.settings
+:100644 100644 ce80a9b... 7750165... M	unigestionapp/.src/FLogin.class
+:100644 100644 49b5579... ec1a07d... M	unigestionapp/.src/FLogin.form
+:100644 100644 0a5fa73... 7e16be2... M	unigestionapp/.src/FMain.class
+:100644 100644 ec2efa2... b375182... M	unigestionapp/.src/FMain.form
+:100644 100644 fcad909... 5e1d2ed... M	unigestionapp/.src/MMain.module
+:000000 100644 0000000... 5501c8a... A	unigestionapp/.src/Usession.class
+:000000 100644 0000000... 3f68a2a... A	unigestionapp/.src/Usession.form
+:000000 100755 0000000... c066438... A	unigestionapp/unigestionlib.gambas
+:100644 100644 587f71a... 79d41a1... M	unigestionlib/.component
+:100644 100644 cb95c3b... d13cbc9... M	unigestionlib/.gitignore
+:100644 100644 b48b9d4... 1ff8ca8... M	unigestionlib/.info
+:100644 100644 5dbc676... 55b5c42... M	unigestionlib/.list
+:100644 100644 4018990... 488d1f2... M	unigestionlib/.project
+:100644 100644 74f1a35... ba708aa... M	unigestionlib/.settings
+:100644 100644 a92e766... 533ec49... M	unigestionlib/.src/exMtest.module
+:000000 100755 0000000... c066438... A	unigestionlib/unigestionlib.gambas
+
+commit 9c295b7a02721f5f94323dbeb301fccc716f54a2
+Author: PICCORO Lenz McKAY <mckaygerhard@gmail.com>
+Date:   Mon Jul 10 22:05:49 2017 +0000
+
+    Update diseno-base-de-datos.md foto modelo de datos
+
+:100644 100644 8a80743... 25b714f... M	docs/diseno-base-de-datos.md
+
+commit 1dbc68448e37c166fc2a2b7fddf2f69c5ea3e9d1
+Author: PICCORO Lenz McKAY <mckaygerhard@gmail.com>
+Date:   Mon Jul 10 17:38:47 2017 -0400
+
+    primera pantalla login y main del programa, fotos y no interactua con db aun
+    * pantalla de login que verifica y entrega control a principal
+    * menu basado en la presentacion, pero ligeramente modificado
+    * proyecto libreria mejorado con funciones actualizadas
+    * las fotos estan en :
+    * https://gitlab.com/venenux/unigestioncursos/blob/master/docs/screenshot01login.png
+    * https://gitlab.com/venenux/unigestioncursos/blob/master/docs/screenshot02principal.png
+    * en estas se ve el entorno 100% grafico de desarrollo
+
+:000000 100644 0000000... ed42586... A	docs/screenshot01login.png
+:000000 100644 0000000... aca6a1a... A	docs/screenshot02principal.png
+:000000 100644 0000000... 06dab1c... A	unigestionapp/.directory
+:000000 100644 0000000... cb95c3b... A	unigestionapp/.gitignore
+:000000 100644 0000000... 2d1a2d5... A	unigestionapp/.hidden/logoinces.png
+:000000 100644 0000000... 604e895... A	unigestionapp/.icon.png
+:000000 100644 0000000... 3b5368f... A	unigestionapp/.project
+:000000 100644 0000000... 20d6e26... A	unigestionapp/.settings
+:000000 100644 0000000... ce80a9b... A	unigestionapp/.src/FLogin.class
+:000000 100644 0000000... 49b5579... A	unigestionapp/.src/FLogin.form
+:000000 100644 0000000... 0a5fa73... A	unigestionapp/.src/FMain.class
+:000000 100644 0000000... ec2efa2... A	unigestionapp/.src/FMain.form
+:000000 100644 0000000... fcad909... A	unigestionapp/.src/MMain.module
+:000000 100644 0000000... d8a8fd8... A	unigestionapp/.src/MMainutils.module
+:100644 100644 62cc187... 587f71a... M	unigestionlib/.component
+:000000 100644 0000000... cb95c3b... A	unigestionlib/.gitignore
+:100644 100644 4015c8f... b48b9d4... M	unigestionlib/.info
+:100644 100644 1579b75... 5dbc676... M	unigestionlib/.list
+:100644 100644 60f3587... 4018990... M	unigestionlib/.project
+:100644 100644 9d5cb66... 74f1a35... M	unigestionlib/.settings
+:000000 100644 0000000... 872d143... A	unigestionlib/.src/exFormLogin.class
+:100644 100644 8214596... 7ed478f... M	unigestionlib/.src/exModSysFile.module
+:100644 100644 9bb6ff7... fb17484... M	unigestionlib/.src/exModSysInfo.module
+:000000 100644 0000000... 9457e3b... A	unigestionlib/.src/exModUtil.module
+
+commit 17cfbea9b5826c76356323c8bc4d276ee7765b81
+Author: PICCORO Lenz McKAY <mckaygerhard@gmail.com>
+Date:   Mon Jul 10 12:46:47 2017 -0400
+
+    simplificado modelo de datos, base de datos reducida mas para facilidad
+    * el diccionario de datos esta implicito, leer comentarios
+    * actualizado documentacion en "diseno-base-de-datos.md"
+    * actualizado script sql de creacion
+    * actualizado modelo workbench y imagen del modelo de datos
+
+:100644 100644 d926a4e... 8a80743... M	docs/diseno-base-de-datos.md
+:100644 100644 76a6600... d2d1d50... M	modelodb/unigestiondb-completo.sql
+:100644 100644 784e0cb... e3a4f68... M	modelodb/unigestiondb-unidbcentral.png
+:100644 000000 0b86c2c... 0000000... D	modelodb/unigestiondb-unidbcliente.png
+:100644 100644 f7de84d... 7bf24b7... M	modelodb/unigestiondb.mwb
+
+commit 3f0d1f5617ee838b04c6b85014d848a444a52130
+Author: PICCORO Lenz McKAY <mckaygerhard@gmail.com>
+Date:   Mon Jul 10 11:41:46 2017 -0400
+
+    mejoradas las instrucciones de trabajo: favor leer aqui:
+    + https://gitlab.com/venenux/unigestioncursos/blob/master/docs/desarrollo-modelo-seguir.md#como-trabajar-este-proyecto
+
+:100644 100644 03066e5... fddc2e4... M	docs/desarrollo-modelo-seguir.md
+
+commit e062eb512e78e34e38bcabcc70e5b8933b36bb31
+Author: PICCORO Lenz McKAY <mckaygerhard@gmail.com>
+Date:   Mon Jul 10 02:32:56 2017 -0400
+
+    agregado documentos originales, pero en formato linux, yo no trabajo guindows
+    * agregado documentos originales para referencia, se acota que estan escuetos
+
+:000000 100644 0000000... c42381e... A	docs/Estructura del III docto_DISEnO ARQ-1.odp
+:000000 100644 0000000... cb0c062... A	docs/Estructura del III docto_DISeno ARQ.odp
+:000000 100644 0000000... 84e49ef... A	docs/proyect II Mancomunado.odt
+
+commit dfe2fdbc0352f0ea3392dcfeae471aea51bbca1c
+Author: PICCORO Lenz McKAY <mckaygerhard@gmail.com>
+Date:   Mon Jul 10 02:25:53 2017 -0400
+
+    unificado en un solo esquema la db, para evitar complicaciones
+    * se tiene pendiente simplificar mas aun la base de datos
+    * se necesita simplificar el aplicativo
+
+:100644 100644 cc81d76... d926a4e... M	docs/diseno-base-de-datos.md
+:100644 100644 8dccb96... 76a6600... M	modelodb/unigestiondb-completo.sql
+
+commit 9280b46485e52e34707f99056dc1f84835069fd2
+Author: PICCORO Lenz McKAY <mckaygerhard@gmail.com>
+Date:   Mon Jul 10 02:12:27 2017 -0400
+
+    corregido pequeno error en modelo de datos
+    * fecha default a nulo pero no permitia nulo
+
+:100644 100644 27ad76e... cc81d76... M	docs/diseno-base-de-datos.md
+:100644 100644 17dd986... 8dccb96... M	modelodb/unigestiondb-completo.sql
+:100644 100644 cdc95f2... 784e0cb... M	modelodb/unigestiondb-unidbcentral.png
+
+commit 6230dd5afade91c2ede2a6bdc7d734bd4519f666
+Author: PICCORO Lenz McKAY <mckaygerhard@gmail.com>
+Date:   Mon Jul 10 02:08:53 2017 -0400
+
+    modulo de libreria : interconexcion y gestion del sistema entre las partes
+    * aplicacion del servicio central, ofrece la conexcion y determina la configuracion del app
+    * clase de conexcion de datos
+    * clase de configuracion
+    * componente de filtro de tablas para reportes y busquedas anidadas (se le pasa un arreglo o resultset)
+    * clase de informacion de red
+    * clase de informacion de archivos y conversion a hoja de calculo desde cvs o cualquiera
+    * clase de informacion de sistema operativo y caracteristicas de entorno
+
+:000000 100644 0000000... f369563... A	docs/diseno-modulos-de-desarrollo.md
+:000000 100644 0000000... 173ac56... A	unigestionlib/.action/exgridfilterf.action
+:000000 100644 0000000... 62cc187... A	unigestionlib/.component
+:000000 100644 0000000... 06dab1c... A	unigestionlib/.directory
+:000000 100644 0000000... 9cd7eeb... A	unigestionlib/.hidden/control/exgridfilter.png
+:000000 100644 0000000... 48f14b9... A	unigestionlib/.hidden/control/exgridview.png
+:000000 100644 0000000... 2406ea3... A	unigestionlib/.hidden/icons/multipart-encrypted.png
+:000000 100644 0000000... 399e015... A	unigestionlib/.hidden/icons/search-x-info.png
+:000000 100644 0000000... 31f4733... A	unigestionlib/.hidden/icons/search-x-play.png
+:000000 100644 0000000... ed43950... A	unigestionlib/.hidden/icons/search-x-restart.png
+:000000 100644 0000000... 211b927... A	unigestionlib/.hidden/icons/search-x-search.png
+:000000 100644 0000000... 0e2485c... A	unigestionlib/.hidden/icons/text-x-texinfo.png
+:000000 100644 0000000... edb8191... A	unigestionlib/.hidden/icons/view-refresh.png
+:000000 100644 0000000... 8748600... A	unigestionlib/.icon.png
+:000000 100644 0000000... 4015c8f... A	unigestionlib/.info
+:000000 100644 0000000... 1579b75... A	unigestionlib/.list
+:000000 100644 0000000... 60f3587... A	unigestionlib/.project
+:000000 100644 0000000... 9d5cb66... A	unigestionlib/.settings
+:000000 100644 0000000... 90ee1b2... A	unigestionlib/.src/exCfgManage.class
+:000000 100644 0000000... b2a6c38... A	unigestionlib/.src/exDbManage.class
+:000000 100644 0000000... 8700e43... A	unigestionlib/.src/exGridview.class
+:000000 100644 0000000... 8214596... A	unigestionlib/.src/exModSysFile.module
+:000000 100644 0000000... 9bb6ff7... A	unigestionlib/.src/exModSysInfo.module
+:000000 100644 0000000... da1af52... A	unigestionlib/.src/exModSysNet.module
+:000000 100644 0000000... a92e766... A	unigestionlib/.src/exMtest.module
+:000000 100644 0000000... cdf8e05... A	unigestionlib/.src/exgridfilter.class
+:000000 100644 0000000... bd341f2... A	unigestionlib/.src/exgridfilterf.class
+:000000 100644 0000000... c548f74... A	unigestionlib/.src/exgridfilterf.form
+:000000 100644 0000000... 83f93a9... A	unigestionlib/unigestiondevel.conf
+
+commit 86da4da149cd265c41d32e1add15079baa3d68c8
+Author: PICCORO Lenz McKAY <mckaygerhard@gmail.com>
+Date:   Sun Jul 9 19:56:45 2017 -0400
+
+    agregado sintaxs colorizada para interfaz web del diccionario de datos
+
+:100644 100644 66ddd1f... 27ad76e... M	docs/diseno-base-de-datos.md
+
+commit a6453c4cbf7c7540ec95ca107ad94f6600941ace
+Author: PICCORO Lenz McKAY <mckaygerhard@gmail.com>
+Date:   Sun Jul 9 19:53:40 2017 -0400
+
+    modelo de base de datos, script y documentacion de la base de datos
+    * documentacion del modielo en wiki y en [docs/diseno-base-de-datos.md] (docs/diseno-base-de-datos.md)
+    * modelo creado en mysqlworkbench por ahora dos base de datos separadas
+    * script generado independeinte de la db, puede usarse en otras DBMS
+    * explicacion en el documento y en la wiki
+
+:100644 100644 8e59e50... 6465b52... M	README.md
+:000000 100644 0000000... 66ddd1f... A	docs/diseno-base-de-datos.md
+:000000 100644 0000000... 17dd986... A	modelodb/unigestiondb-completo.sql
+:000000 100644 0000000... cdc95f2... A	modelodb/unigestiondb-unidbcentral.png
+:000000 100644 0000000... 0b86c2c... A	modelodb/unigestiondb-unidbcliente.png
+:000000 100644 0000000... f7de84d... A	modelodb/unigestiondb.mwb
+
+commit 778db25a4ba017b61d587d4106a2b75e009e1560
+Author: PICCORO Lenz McKAY <mckaygerhard@gmail.com>
+Date:   Sun Jul 9 16:45:51 2017 -0400
+
+    documento inicial README o LEEME para informacion general
+    mientras estoy en el modelo-entidad-relacion
+    leer aqui: https://gitlab.com/venenux/unigestioncursos/blob/master/README.md
+
+:000000 100644 0000000... 8e59e50... A	README.md
+
+commit 990653137c0012f1f7761a1512badae473f4cbee
+Author: PICCORO Lenz McKAY <mckaygerhard@gmail.com>
+Date:   Sun Jul 9 16:40:48 2017 -0400
+
+    documentacion inicial del proyecto, mientras dise?o modelo entidad-relacion
+    * se da un breve de porque como y cuando de el proyecto
+    * yo empleo gitlap porque me permite trabajar sin internet
+    * una vez que termino de trabajar, voy al cyber y con un copy/paste se sube los cambios
+    * en los documentos enlazados se detalla los preliminares  los criterios empleados
+    * FAVOR LEER ESTOS DOCUMENTOS
+
+:000000 100644 0000000... 03066e5... A	docs/desarrollo-modelo-seguir.md
+
+commit e7eb3fdf9252b1b1333af40ddfeace38b3066577
+Author: PICCORO Lenz McKAY <mckaygerhard@gmail.com>
+Date:   Sun Jul 9 15:33:54 2017 +0000
+
+    Add license GPL, universidd ni inces es dueña del codigo
+
+:000000 100644 0000000... 3a3e12b... A	LICENSE

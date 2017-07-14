@@ -4,7 +4,7 @@
 Matrix Casos de uso Generales
 =============================
 
-Descargar documento: [proyecto-matrix-casos-de-uso.ods](proyecto-matrix-casos-de-uso.ods)
+Documento original: [documentos/desarrollo-matrix-casos-de-uso.ods](documentos/desarrollo-matrix-casos-de-uso.ods)
 
 | CASO DE USO General         | Actor                            | Modulo    | Descripcion del C.U         | 
 | --------------------------- | -------------------------------- | --------- | --------------------------- | 
@@ -27,7 +27,7 @@ Descargar documento: [proyecto-matrix-casos-de-uso.ods](proyecto-matrix-casos-de
 Matrix Casos de uso Especificos
 -------------------------------
 
-(por hacer por uds basados en el programa es decir de atras a adelante)
+En el Documento: [documentos/desarrollo-matrix-casos-de-uso.ods](documentos/desarrollo-matrix-casos-de-uso.ods)
 
 
 ## Vea tambien:

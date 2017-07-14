@@ -22,7 +22,7 @@ Los siguientes archivos contienen informacion del proyecto:
 Como trabajar en el projecto
 ----------------------------
 
-Leer la informacion en el archivo [desarrollo-como-empezar.md] (desarrollo-como-empezar.md)
+Leer la informacion en el archivo [desarrollo-como-empezar] (desarrollo-como-empezar.md)
 
 Fotos de la aplicacion
 -----------------------
