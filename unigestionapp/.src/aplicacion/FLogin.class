@@ -4,6 +4,10 @@ Public Sub Form_Open()
 
   btnlogin.Text = "Entrar interfaz"
   btnsalir.Text = "Salir y cerrar"
+  If exModSysInfo.itsRunIDE() = -1 Then
+      usuario_nombre.Text = "sdfasdfafasfad"
+      usuario_clave.Text = "sdfasdfafasfad"
+  Endif
 
 End
 
@@ -29,4 +33,10 @@ Public Sub btnsalir_Click()
   
   Me.Close(1)
   
+End
+
+Public Sub Form_Close()
+
+    Me.Close(1)
+
 End

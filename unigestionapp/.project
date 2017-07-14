@@ -1,8 +1,8 @@
 # Gambas Project File 3.0
-# Compiled with Gambas 3.5.4
+# Compiled with Gambas 3.1.1
 Title=unigestionapp
 Startup=MMain
-Version=0.0.2
+Version=1.0.0
 Component=gb.image
 Component=gb.qt4
 Component=gb.form
@@ -17,6 +17,7 @@ Component=gb.net.curl
 Component=gb.qt4.ext
 Component=gb.vb
 Component=gb.web
+Description="Programa de gestion de cursos y registro de alumnos para Inces"
 TabSize=4
 Vendor=venenux
 Packager=1

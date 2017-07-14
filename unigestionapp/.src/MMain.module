@@ -36,13 +36,18 @@ Public Sub Main()
     Dim respuesta As Integer = 0
     If Not inicializado Then inicializar()
     
+    ' libera los recursos y asegura cerrar todo
+    If Not FMain.Closed Then
+        FMain.Close
+    Endif
+    ' levando el ventana de login por si vuelve de main
     respuesta = FLogin.ShowModal()      ' levanto una ventada en modo "temporal" retornara algo al cerrar/return
     If respuesta = -1 Then
         FMain.$configurado = $configurado   ' pasa la configuracion
         FMain.$datadesdedb = $datadesdedb   ' pasa la conexcino a db
         FMain.Show                      ' login es -1 o true, levante el formulario de gestion cursos
     Else
-        If respuesta = 1 Then           ' si es cancelar, sale, 
+        If respuesta = 1 Or respuesta = 0 Then           ' si es cancelar, sale, 
             salirycerrar                ' sino reintenta una vez mas
         Endif
         respuesta = FLogin.ShowModal()  ' reintenta una vez mas

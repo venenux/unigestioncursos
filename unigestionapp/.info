@@ -1,17 +1,14 @@
 #exCfgManage
 
 C
-'clase de configuracion inicial, inicia parametros de la aplicacion sea cliente o servidor y establece a donde se conectara asi como datos de entidad y conectividad
 configurado
 v
 b
 
-'flag semaforo de configuracion lista o no
 configuracion
 p
 Collection
 
-'arreglo de configuraciones
 _new
 m
 
@@ -20,44 +17,35 @@ configurar
 m
 
 
-'hacer que la aplicacion acceda a la configuracion y la lea/force si accede como funcion, sino como propiedad
 #exDbManage
 
 C
-'clase de manejo de conexciones a base de datos indicadas, tiene dos conexciones, una en memoria y otra remota de db central, TODO: pool de conexciones de n conexciones
 conexciones
 r
 Connection[]
 
-'pool de las conexciones a bases de datos configuradas, segun el orden archivo configuracion
 conexdbram
 r
 Connection
 
-'db en ram de operaciones locales para no ir varias veces a db
 conexdbsql
 r
 Connection
 
-'db default de operaciones remota o la segunda de todo el pool
 exconnavailable
 r
 b
 
-'si esta en TRUE el pool de conexciones esta disponible, el ultimo elemento sera los errores ocurridos
 _new
 m
 
 [(autoiniciardbs)b]
-'prepara una instancia del pool de las conexciones a las bases de datos, el error si alguno ocurre esta en el ultimo elemento
 #exFormLogin
 
 C
-'futuro form de login
 #exGridview
 GridView
 C
-'Un "Extended Gridview"<br>**Author** PICCORO Lenz McKAY<br><br>Gridview extendido base, indexacion en ram, la fuente puede ser un resultado sql o una collecion o cualquier fuente indexada que tenda definidos los indices
 _Properties
 C
 s
@@ -82,69 +70,50 @@ source
 p
 v
 
-'Fuente de datos como objeto *Collecion*, *Matrix* bidimensional o objeto *Result*. La clase lo maneja en su variable privada *[$source]*<br> ejemplo: <code>exGriview.source\=con.exec("SELECT \* FROM Tabla")</code> <br>Es necesario proporcionar una fuente de datos de matrix bidimensional, como lo son:<br>- En caso de matriz, de dos dimensiones de cadenas,<br>- o directo el resultado de una consulta,<br>- O n objeto collection con sus indices definidos.<br><br>*RETURNS*: objeto matrix de dos dimensiones, puede tratarse como collecion.
 wordWrap
 p
 b
 
-'if True, the wordWrap propery of cells is setted to True and the height of rows is fitted.<br>adaptara el alto de la línea para que quepa todo el contenido del campo. Si es false, sólo aparecerá el que quepa en el ancho de la columna.
 setHeads
 p
 b
 
-'si debe mostrar titulos de columnas, default **True** en matrizes bidimensionales debe llenarse vacio lapropiedad titles
 expandCols
 p
 b
 
-'si debe cada columna expandirse apra ver su contenido o no, indiferente o no del tamaño del grid
 titles
 p
 String[]
 
-'cabeceras del gridview, si no asignadas, autodetectadas desde **source** usando los indices
 alternate
 p
 b
 
-'si debe cada fila alternar su color para diferenciarse
 widths
 p
 String[]
 
-'arreglo de anchos de columnas, cada indice es la columna correspondiente, indice no definido es columna automatica de ese indice en adelante:<br> *a.* Si definido una sola columna, ese ancho se respeta siempre<br> *b.* Si indefinido para una columna y expandcols es True, esa columna se adaptara<br> *c.* Si indefinido para una columna y expandcols es False, esa columna pero el resto automatica
 Value
 r
 Collection
 
-'arreglo completo de todos los valores de el gridview *incluyendo el filtro activo*<br>, para acceso directo segun su indice.<br>Ejemplo:<br> *exgridview.Value\["columname"\]* in event Click or DblClic accedera al valor de la columna "columname" en la posicion del click de la fila entera.
-Selection
-r
-v
-
-'@{since 3.5} devuelve ofrece el arreglo completo de todo el grid *incluyendo el filtro activo*, es como una collecion de la *[cource]* pero ya filtrada.
 isShift
 r
 b
 
-'notifica si tecla shift esta activa/presionada para combinaciones de menu
 isControl
 r
 b
 
-'notifica si tecla control esta activa/presionada para combinaciones de menu
 fieldtypes
 r
 Integer[]
 
-'@{experimental} almacena los tipos de campos detectados o determina los tipos de celdas de los datos
 _new
 m
 
 
-'fila a tratar
-'columna a tratar
-'Gridview extendido, provee indexacion en ram, lo que hace su trabajo eficiente sin tener que if varias veces a la fuente, que puede ser un resultado sql o una collecion o cualquier fuente indexada que tenda definidos los indices como alfanumericos
 Clear
 m
 
@@ -157,12 +126,10 @@ grid_RowClick
 m
 
 (row)i
-'situa el valor en una fila completa al inicio de esta fila, la celda inicial de la fila actual
 grid_Click
 m
 
 
-'al establecerce en la fila actual en su primera celda pinta al fila segunlas propiedades, y devuelve el valor de dicha fila
 grid_ColumnClick
 m
 
@@ -171,7 +138,6 @@ sort
 m
 
 (c)i
-'ordenamiento por el valor seleccionado de columna usando el indice de sus posiciones
 grid_KeyPress
 m
 
@@ -199,28 +165,21 @@ _requisites
 V
 s
 
-'modulo de utilidades respecto el sistema de ficheros, requiere `libreoffice` para conversiones, `openoffice` solo para visor
-'variable interna para manejar el comando ejecutado en la rutina invocada
-'variable interna para resultado del comando ejecutado en la rutina invocada
 getFileDev
 M
 s
 [(ruta)s]
-'devuelve el dispositivo o disco, segun ruta, sino el del sistema de ficheros raiz, si es mapeado no devuelve el dispositivo real, solo el mapa
 getFileSys
 M
 s
 [(directorio)s]
-'devuelve el sistema de ficheros, segun `directorio`, sino el sistema de ficheros raiz, si no es valido/montado no devuelve nada
 caltoods
 M
 s
 [(namefile)s(pathfile)s]
-'exporta un archivo csv o excel a ods en donde se ejecute el modulo, @return: ruta de donde se guarda el resultado
 #exModSysInfo
 
 C
-'modulo para funciones de informacion del sistema, depende de lsb (lsb-release en debian)
 ResumeHuman
 M
 s
@@ -241,7 +200,6 @@ Distro
 M
 s
 
-'devuelve la distribución instalada xmi <br> @return String
 Ram
 M
 s
@@ -254,7 +212,6 @@ ComputerName
 M
 s
 
-'alias de *system.host* devuelve el nombre del pc
 DskType
 M
 s
@@ -263,12 +220,10 @@ CurrentUser
 M
 s
 
-'alias de *system.user.name* devuelve el usuario activo
 AllUsers
 M
 s
 
-'Devuelve los usuarios nivel normal via unix registro (passwd/shadow)
 WGroup
 M
 s
@@ -289,12 +244,10 @@ DistroShort
 M
 s
 
-'devuelve la distribución madre como nombre corto xmi <br> @return String
 SysFile
 M
 s
 (ruta)s
-'migrado: alias de [exModSysFile.getFileSys]
 ProjInfo
 M
 String[]
@@ -323,51 +276,40 @@ XDGFolder
 M
 String[]
 
-'Devuelve una matriz de texto con las rutas de las carpetas de musica, imagenes, documentos etc. del directorio /home/user
 #exModSysNet
 
 C
-'Se detecta toda informacion de red usando `/sbin/ifconfig` y `netstat` esto es estandar en Linux, FreeBSD y MacOS por ende es seguro usar ruta absoluta `/sbin/` y los comandos aqui son unix agnostic. Las llamadas de las funciones necesitan `netstat`, `ifconfig`, `awk`, `grep` y `head`.
 _requisites
 V
 s
 
-'variable interna para manejar el comando ejecutado en la rutina invocada
-'variable interna para resultado del comando ejecutado en la rutina invocada
 getImdef
 M
 s
 [(defIf)s]
-'obtener la mac que se usa para enviar y recibir datos en la red/internet de todas las activas<br> si @param defif se provee se usara este dispositivo de red como el activo para optener la ip
 getIfdef
 M
 s
 
-'obtener la interfaz que se usa para enviar y recibir datos en la red/internet de todas las activas
 getIpdef
 M
 s
 [(defIf)s]
-'obtener la ip que se usa para enviar y recibir datos en la red/internet de todas las activas<br> si @param defif se provee se usara este dispositivo de red como el activo para optener la ip
 getIfall
 M
 String[]
 
-'obtener todas las interfaces de red activas de las disponibles
 getIpall
 M
 String[]
 
-'obtener todas las ip/direcciones de red activas de las configuradas
 #exModUtil
 
 C
-'Se trabaja con manipulacion de variables
 ucfirst
 M
 s
 (strInput)s
-'variable interna para resultado ofrecido por cada funcion
 ucwords
 M
 s
@@ -395,7 +337,6 @@ licencia
 C
 s
 https://gitlab.com/venenux/gambasex/blob/master/LICENSE.md
-'Licencia especial CC-BY-SS con ecepciones, detalles https://gitlab.com/venenux/gambasex/blob/master/LICENSE.md
 :Click
 :
 
@@ -420,7 +361,6 @@ wordWrap
 p
 b
 
-'Si está activo el contenido de la columna se amplia en varias lineas si es necesario
 titles
 p
 String[]
@@ -445,7 +385,6 @@ grid
 p
 ExGridview
 
-'exGridFilter extiende de ExGridview un extended gridView con capacidades de ordenamiento y recursividad en memoria a partir de fuente de datos matricial (colleccion o arreglo bidimensional o Result)
 showButtons
 p
 b
@@ -470,7 +409,6 @@ pnBotones
 r
 Panel
 
-'panel contenedor de botones de busqueda
 isShift
 r
 b

@@ -18,14 +18,14 @@ End
 
 Public Sub Menu03_Click()
 
-    FMain.Close
+    FMain.Hide
     MMain.salirycerrar
 
 End
 
 Public Sub Menu02_Click()
 
-    FMain.Close
+    FMain.Hide
     MMain.Main
 
 End
@@ -90,8 +90,3 @@ Public Sub Menu16_Click()
 
 End
 
-Public Sub Form_Close()
-
-    MMain.salirycerrar
-
-End
