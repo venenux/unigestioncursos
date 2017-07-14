@@ -1,4 +1,6 @@
-# Dise?o de datos
+ --- [HOME](docs/README.md) --- [FOTOS](docs/READMEFOTOS.md) --- [DISEÑO](docs/READMEDISENO.md) --- [MODULOS](READMEMENU.md) ---
+
+# Diseño de datos
 
 * [Modelo de Base de Datos] (#modelo-de-base-de-datos)
   * [Modelo de datos] (#modelo-de-datos)
@@ -21,7 +23,7 @@ En la base de datos central estan los usuarios, que son tanto alumnos, como doce
 
 ### Modelo DB central
 
-![unigestiondb-unidbcentral](/uploads/d08ed9918c915a64f47cb27b6eb20bcc/unigestiondb-unidbcentral.png)
+![documentos/unigestiondb-unidbcentral.png](documentos/unigestiondb-unidbcentral.png)
 
 Diccionario de Datos
 ----------------------
