@@ -90,3 +90,9 @@ Public Sub Menu16_Click()
 
 End
 
+
+Public Sub Form_Close()
+
+    MMain.salirycerrar
+
+End
