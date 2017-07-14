@@ -52,11 +52,11 @@ Public Sub uellenarcondata()
     uegrifilter.Mode = Select.Single    ' traer la data para la parte del filtro mostrar la data con un combo de filtrado
     Error.Clear
     Try resultadosedes = $datadesdedb[1].Exec(sqlsedes)
-   'If Comp($usuariofiltro, $usuariologin, gb.IgnoreCase) <> 0 And Not Error Then
+    If Not IsNull(resultadosedes) And Not Error Then
         If resultadosedes.Available Then                  ' si no hay datos o ocurre error dejar la info inicial arriba
             uegrifilter.source = resultadosedes
         Endif
-    'Endif
+    Endif
     
 End
 

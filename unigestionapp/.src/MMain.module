@@ -63,7 +63,9 @@ Public Sub salirycerrar()
     Dim conexcion As Connection
     ' liberar bases de datos, salvar la config
     For Each conexcion In $datadesdedb
-        If conexcion.Opened Then conexcion.Close
+        If Not IsNull(conexcion) Then
+            If conexcion.Opened Then conexcion.Close
+        Endif
     Next
     ' libera los recursos y asegura cerrar todo
     If Not FMain.Closed Then
