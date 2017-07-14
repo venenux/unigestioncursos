@@ -15,7 +15,7 @@ Contenido:
 Los siguientes archivos contienen informacion del proyecto:
 
 * Presentacion: [docs/documentos/estructura-III-docto_DISeno-ARQ.pdf] (docs/documentos/estructura-III-docto_DISeno-ARQ.pdf)
-* [Diseño y desarrollo] (docs/READMEDISENO.md)
+* Arquitectura: [Diseño y desarrollo] (docs/READMEDISENO.md)
 * [Como usar el sistema de desarrollo] (docs/desarrollo-como-empezar.md)
 
 
