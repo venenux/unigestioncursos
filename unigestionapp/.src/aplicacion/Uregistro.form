@@ -1,0 +1,97 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,90,56)
+  Text = ("UNIAP : Registrar usuario")
+  { utb_codusuario TextBox
+    MoveScaled(17,4,25,4)
+    Text = ("utb_codusuario")
+  }
+  { ucb_uestado ComboBox
+    MoveScaled(61,9,25,4)
+    Text = ("ComboBox1")
+  }
+  { ucb_ucondic ComboBox
+    MoveScaled(61,4,25,4)
+    Text = ("ComboBox1")
+  }
+  { ucb_utipo ComboBox
+    MoveScaled(61,14,25,4)
+    Text = ("ComboBox1")
+  }
+  { utb_userapellido TextBox
+    MoveScaled(17,19,25,4)
+    Text = ("utb_userapellido")
+  }
+  { utb_usernombre TextBox
+    MoveScaled(17,14,25,4)
+    Text = ("utb_usernombre")
+  }
+  { utb_userintranet TextBox
+    MoveScaled(17,9,25,4)
+    Text = ("utb_userintranet")
+  }
+  { ucb_uorigen ComboBox
+    MoveScaled(61,19,25,4)
+    Text = ("ComboBox1")
+  }
+  { upb_fotobinario PictureBox
+    MoveScaled(61,29,25,19)
+  }
+  { ubtn_fotoseleccionar ButtonBox
+    MoveScaled(61,24,25,4)
+    Text = ("ButtonBox1")
+  }
+  { ulbl_codusuario Label
+    MoveScaled(1,4,16,4)
+    Text = ("Cedula")
+  }
+  { ulbl_usuarioentidad Label
+    MoveScaled(1,24,16,4)
+    Text = ("Juridiscion")
+  }
+  { ulbl_uorigen Label
+    MoveScaled(44,19,17,4)
+    Text = ("Origen")
+  }
+  { ulbl_utipo Label
+    MoveScaled(44,14,17,4)
+    Text = ("Tipo")
+  }
+  { ulbl_userapellido Label
+    MoveScaled(1,19,16,4)
+    Text = ("Apellido")
+  }
+  { ulbl_uestado Label
+    MoveScaled(44,9,17,4)
+    Text = ("Estado")
+  }
+  { ulbl_usernombre Label
+    MoveScaled(1,14,16,4)
+    Text = ("Nombre")
+  }
+  { ulbl_ucondicion Label
+    MoveScaled(44,4,17,4)
+    Text = ("Condicion")
+  }
+  { ulbl_userintranet Label
+    MoveScaled(1,9,16,4)
+    Text = ("usuario")
+  }
+  { utb_usuarioentidad ComboBox
+    MoveScaled(17,24,25,31)
+    Text = ("utb_usuarioentidad")
+  }
+  { ulbl_ufotobinario Label
+    MoveScaled(44,24,17,4)
+    Text = ("Foto")
+  }
+  { ubtn_uregistrar Button
+    MoveScaled(47,49,17,5)
+    Text = ("Registrar")
+  }
+  { ebtn_cancelar Button
+    MoveScaled(66,49,17,5)
+    Text = ("Cancelar")
+  }
+}

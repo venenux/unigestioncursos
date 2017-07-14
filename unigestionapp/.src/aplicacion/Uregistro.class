@@ -1,0 +1,37 @@
+' Gambas class file
+
+
+Public $datadesdedb As Connection[]
+Public $configurado As Collection
+Public $usuariofiltro As String = ""    '' usuario que se filtra en la parte del grid
+Public $usuariologin As String = ""     '' usuario que actualmente corre el programa
+
+Public Sub Form_Open()
+
+    Dim filas As New Variant[]
+    Dim titulos As New String[]
+
+    FMain.Visible = False                   ' escondo la ventana principal
+    Uregistro.Raise                          ' levanto esta ventana de usuario(s)
+
+End
+
+Public Sub ebtn_cancelar_Click()
+
+        Uregistro_Close
+End
+
+Public Sub Uregistro_Close()
+
+    FMain.Visible = True
+    FMain.Raise
+    Me.Close
+    Return
+
+End
+
+Public Sub ubtn_uregistrar_Click()
+
+    Message.Error("aqui registra en db, pendiente codificar")
+
+End

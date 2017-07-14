@@ -2,6 +2,7 @@
 
 { Form Form
   MoveScaled(0,0,70,33)
+  Text = ("UNIAP : iniciar")
   { usuario_nombre TextBox
     MoveScaled(25,3,20,5)
   }

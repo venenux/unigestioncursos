@@ -2,6 +2,7 @@
 
 { Form Form
   MoveScaled(0,0,72,44)
+  Text = ("UNIAP : principal")
   { Menu0 Menu
     Text = ("Programa")
     { Menu01 Menu
@@ -46,6 +47,9 @@
     { Menu22 Menu
       Text = ("Egresar")
     }
+    { Menu25 Menu
+      Text = ("Certificar")
+    }
   }
   { Menu4 Menu
     Text = ("Archivos")
@@ -78,5 +82,10 @@
     MoveScaled(66,32,5,8)
     Picture = Picture[".hidden/imagenes/powered-venenux.jpg"]
     Stretch = True
+  }
+  { !mlbl_estadoapp Label
+    MoveScaled(3,37,60,2)
+    #Public = True
+    Text = ("mlbl_estadoapp")
   }
 }

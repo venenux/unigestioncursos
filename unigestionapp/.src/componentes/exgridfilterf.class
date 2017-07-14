@@ -63,7 +63,7 @@ Private Function lineOk(fila As Integer) As Boolean
     
     Dim i As Integer
     
-    For i = 0 To $filtro.Max
+    For i = 0 To $filtro.Count - 1
         Select Case $filtro[i][2]
             Case "="    
                 If $original[fila][$filtro[i][1]] <> $filtro[i][3] Then

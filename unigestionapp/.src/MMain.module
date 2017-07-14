@@ -49,6 +49,7 @@ Public Sub Main()
         If respuesta = -1 Then
             FMain.$configurado = $configurado   ' pasa la configuracion
             FMain.$datadesdedb = $datadesdedb   ' pasa la conexcino a db
+            If Not IsNull($datadesdedb.Count) Then FMain.mlbl_estadoapp.Text = "Iniciada config y db, Numero de conexciones (minimo 2) " & $datadesdedb.Count
             FMain.Show                  ' login true o -1 levanta el main gestion de cursos
         Else
             Message.Error("credenciales incorrectas saliendo")

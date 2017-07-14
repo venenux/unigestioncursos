@@ -1,0 +1,20 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,105,61)
+  { exgridfilter1 exgridfilter
+    MoveScaled(3,7,97,23)
+  }
+  { etbn_cancelar Button
+    MoveScaled(82,33,18,4)
+    Text = ("Principal,volver..")
+  }
+  { ebtn_ecursocambiar Button
+    MoveScaled(63,33,18,4)
+    Text = ("Modificar")
+  }
+  { ebtn_ecursonuevo Button
+    MoveScaled(3,33,18,4)
+    Text = ("Nuevo curso")
+  }
+}

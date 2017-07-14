@@ -19,14 +19,29 @@ Geometry=[79,15,224,280]
 [DebugWindow/$datadesdedb[2]]
 Geometry=[79,15,224,280]
 
+[DebugWindow/resultadodatauser]
+Geometry=[47,0,210,210]
+
 [OpenFile]
-File[1]=".src/MMainutils.module:13.8"
-File[2]=".src/FMain.class:4.22"
-File[3]=".src/FMain.form"
-File[4]=".src/Usession.class:0.26"
-Active=4
-File[5]=".src/Usession.form"
-Count=5
+File[1]=".src/MMainutils.module:11.0"
+File[2]=".src/aplicacion/FMain.class:94.0"
+File[3]=".src/aplicacion/FMain.form"
+File[4]=".src/aplicacion/Usession.class:15.0"
+File[5]=".src/aplicacion/Usession.form"
+File[6]=".src/aplicacion/Uentidad.form"
+Active=7
+File[7]=".src/MMain.module:78.0"
+File[8]=".src/aplicacion/Uentidad.class:15.3"
+File[9]=".src/aplicacion/Uregistro.form"
+File[10]=".src/aplicacion/FLogin.form"
+File[11]=".src/componentes/exCfgManage.class:12.18"
+File[12]=".src/componentes/exGridview.class:443.0"
+File[13]="unigestiondevel.conf:0.0"
+File[14]=".src/aplicacion/Ecursos.form"
+File[15]=".src/aplicacion/Uregistro.class:37.0"
+File[16]=".src/aplicacion/Ecursos.class:0.18"
+File[17]=".src/aplicacion/FLogin.class:24.0"
+Count=17
 
 [Watches]
 Count=0

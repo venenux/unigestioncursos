@@ -7,7 +7,11 @@ Private $usuariologin As String = ""
 Public Sub Form_Open()
     
     $usuariologin = "admin"
-    
+    If Not IsNull($configurado.Count) And Not IsNull($datadesdedb.Count) Then
+        mlbl_estadoapp.Text = "Iniciada config y db, Numero de conexciones (minimo 2) " & $datadesdedb.Count
+    Else
+        mlbl_estadoapp.Text = "Fallada la configuracion, base de datos en ram cargada, modo temporal activado"
+    Endif
 End
 
 
@@ -63,5 +67,31 @@ Public Sub Menu14_Click()
     Uentidad.$datadesdedb = $datadesdedb
     Uentidad.$usuariofiltro = ""                ' aun no det4erminado, dependera de permisos de usuario
     Uentidad.Show           ' al cerrarse usession este se encarga de devolver fmain normal
+
+End
+
+Public Sub Menu23_Click()
+
+    Uregistro.$usuariologin = $usuariologin     ' mostrar pantalla solo para datos de sedes de este usuario si tiene permiso
+    Uregistro.$configurado = $configurado
+    Uregistro.$datadesdedb = $datadesdedb
+    Uregistro.$usuariofiltro = ""                ' aun no det4erminado, dependera de permisos de usuario
+    Uregistro.Show
+
+End
+
+Public Sub Menu16_Click()
+
+    Ecursos.$usuariologin = $usuariologin     ' mostrar pantalla solo para datos de sedes de este usuario si tiene permiso
+    Ecursos.$configurado = $configurado
+    Ecursos.$datadesdedb = $datadesdedb
+    Ecursos.$usuariofiltro = ""                ' aun no det4erminado, dependera de permisos de usuario
+    Ecursos.Show
+
+End
+
+Public Sub Form_Close()
+
+    MMain.salirycerrar
 
 End

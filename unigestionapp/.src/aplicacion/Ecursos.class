@@ -1,0 +1,43 @@
+' Gambas class file
+
+Public $datadesdedb As Connection[]
+Public $configurado As Collection
+Public $usuariofiltro As String = ""    '' usuario que se filtra en la parte del grid
+Public $usuariologin As String = ""     '' usuario que actualmente corre el programa
+
+Public Sub Form_Open()
+
+    Dim filas As New Variant[]
+    Dim titulos As New String[]
+
+    FMain.Visible = False                   ' escondo la ventana principal
+    Ecursos.Raise                          ' levanto esta ventana de usuario(s)
+
+End
+
+Public Sub etbn_cancelar_Click()
+
+    Ecursos_Close
+
+End
+
+Public Sub Ecursos_Close()
+
+    FMain.Visible = True
+    FMain.Raise
+    Me.Close
+    Return
+
+End
+
+Public Sub ebtn_ecursonuevo_Click()
+
+    Message.Error("aqui habilita abajo cambpos y despue sun boton para AGREGAR en db NUEVO curso")
+
+End
+
+Public Sub ebtn_ecursocambiar_Click()
+
+     Message.Error("aqui habilita abajo cambpos y despue sun boton para SALVAR en db ESTE curso")
+
+End
