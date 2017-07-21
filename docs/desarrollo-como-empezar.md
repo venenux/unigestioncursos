@@ -23,12 +23,7 @@ Para instalar solo instale el paquete.
   + puede usar el Linux descargado desde usb: http://venenuxmassenkoh.blogspot.com/2012/03/instalador-beta-usb-vnx-basado-en.html 
      el proceso es un poco complicado pero permite usar el USB y al mismo tiempo trabajar con el USB desde una pc sin instalar
 2. Clonar el repositorio
-`
-cd
-mkdir Devel & cd Devel
-git clone https://gitlab.com/venenux/unigestioncursos.git
-cd unigestioncursos
-`
+`cd; mkdir Devel & cd Devel; git clone https://gitlab.com/venenux/unigestioncursos.git; cd unigestioncursos`
 3. Ir al menu y arrancar la herramienta correspondiente segun el caso (codificar aplicaion o diseno con la db):
   + Si codifica la aplicacion:
     * ir a menu->desarrollo->Gambas 
