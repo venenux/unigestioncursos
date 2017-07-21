@@ -2,6 +2,9 @@
 
 # **SYSTEMA DE GESTION ACADEMICA** para **INCES**
 
+Web: https://venenux.github.io/unigestioncursos/
+GIT: https://gitlab.com/venenux/unigestioncursos.git
+
 Introduccion:
 ===============
 
