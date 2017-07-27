@@ -28,3 +28,27 @@ Public Function ucwords(strInput As String) As String ''Devuelve un texto con la
     Next
     Return outputfunction
 End
+
+Public Function urisegment(strInput As String, Optional segment As Integer = 999) As String ''Devuelve el segmento ultimo o parte segun de un uri o ruta dada de archivos
+    
+    Dim strtmp As String[]
+    Dim index As Integer
+    outputfunction = ""
+    strtmp = Split(strInput, "/")
+    index = segment
+    If strtmp.Count < segment Then
+        index = strtmp.Count - 1
+    Endif
+    outputfunction = strtmp[index]
+    Return outputfunction
+End
+
+Public Function urifilepath(strInput As String) As String ''Devuelve la ruta absoluta de un uri que termina en un archivo
+    
+    Dim strtp As String
+    outputfunction = ""
+    strtp = Mid(strInput, 1, RInStr(strInput, "/"))
+    'strtp = String.Left(strtp, String.Len(strtp) - 1) 
+    Return strtp
+End
+

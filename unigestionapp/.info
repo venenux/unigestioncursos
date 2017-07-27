@@ -314,6 +314,14 @@ ucwords
 M
 s
 (strInput)s
+urisegment
+M
+s
+(strInput)s[(segment)i]
+urifilepath
+M
+s
+(strInput)s
 #exgridfilter
 UserControl
 C
