@@ -33,9 +33,11 @@ End
 '' constructor del pool de las conexciones indicadas en configuracion
 Private Sub preparaConexiones(Optional indexnumberscons As Integer = 0) As Boolean
     
-    Dim dbusr, dbnam, dbip, dbpor, dbpas As String = ""
+    Dim dbfalback, dbusr, dbnam, dbip, dbpor, dbpas As String = ""
     Dim apploc, appusr, appmac As String = ""
     Dim $configurados As New Collection
+    Dim dbnameu As String
+    Dim dbpathu As String
     
     If Not IsNull($objconfs) Then
         $configurados = $objconfs.configuracion             ' instancio y leo la configuracion, tomo valores de db (nota TODO: pass en md5)
@@ -62,9 +64,22 @@ Private Sub preparaConexiones(Optional indexnumberscons As Integer = 0) As Boole
         $conexdbsql.Password = dbpas ' Clave de Usuario
         Try $conexdbsql.Open()               ' Abrimos la conexion
         conninpoolavailable = True
-        If Error Then
-            $conexdbsql = Null
+        If Not $conexdbsql.Opened Then
             conninpoolavailable = False ' si algun error colocan en null el elmento
+            Error.Clear
+            dbfalback = $configurados["cnxsqlitename"]
+            dbnameu = exModUtil.urisegment(dbfalback)
+            dbpathu = exModUtil.urifilepath(dbfalback)
+            $conexdbsql = New Connection
+            $conexdbsql.Type = "sqlite3"
+            $conexdbsql.Host = dbpathu
+            $conexdbsql.Name = dbnameu
+            Try $conexdbsql.Open()               ' Abrimos la conexion
+            conninpoolavailable = True
+            If Not $conexdbsql.Opened Then
+                $conexdbsql = Null
+                conninpoolavailable = False ' si algun error colocan en null el elmento
+            Endif
         Endif
         If Not conninmemmavailable Then     ' es dificil que la db en memoria cambie o se desconecte
             preparaConexionram()             ' por ende es seguro confiar que si esta presente es la misma de siempre

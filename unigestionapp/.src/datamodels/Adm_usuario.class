@@ -1,0 +1,130 @@
+' Gambas class file
+
+Private $datadesdedb As Connection[]
+Private $configurado As Collection
+
+Private $usuariologin As String = ""
+Private SQLString As String
+Private mRs As Result
+Private conectar As Collection
+
+Public filtros_adm_usuario As Collection '' configura que criterios por campos de la tabal se filtrara usuario que representara esta tabla
+Public datos_adm_usuario As Collection '' configura que datos se guardaran en la invocacion de caulqeuir funcion que guarde datos
+Public data_adm_usuario As Collection[] '' los usuarios abstraidos por esta clase, emula un modelo VO, y la calse seria el modelo DAO
+
+'' inicializa este modelo de datos que abastrae uno o varios usuarios segun el filtro
+Public Function initModelo(dbconarray As Connection[])
+    
+    $datadesdedb = dbconarray
+    conectar = $datadesdedb[1]
+    If $datadesdedb.Count < 3 Then
+        Message.Error(" Se ha producido un ERROR al Intentar obtener la conexcion")
+        Error
+    Endif
+    
+End
+
+'' entrega el numero de usuarios de la tabla, dependiendo del filtro seteado en la clase filtros_adm_usuario
+Public Function total_adm_usuario() As Integer 
+
+    SQLString = "SELECT count(cod_usuario) as cuantos FROM adm_usuario" 
+    Try mRs = conectar.hconn.Exec(SQLString) 
+    If Error Then 
+        Message.Error(" Se ha producido un ERROR al Intentar obtener lista")
+        Return -1 
+    Endif 
+    Return Val(Str$(mRs!cuantos)) 
+
+End
+
+'' corrogora las credenciales de un usuario, retorna falso i erroneo, sino el objeto usuario completo
+Public Function ver_adm_usuario(username As String, clavename As String) As Variant
+    
+    Dim usuariodata As Collection
+    Dim titlecampo, valorcampo As String
+    Dim campo As Integer
+
+    SQLString = "SELECT * FROM adm_usuario WHERE intranet =  '&1' and clave = '&2' " 
+    Try mRs = conectar.hconn.Exec(SQLString, username, clavename) 
+    If Error Then 
+        Message.Error(" Se ha producido un ERROR al Intentar obtener lista")
+        Return False
+    Endif 
+    While mRs.available
+        For campo = 0 To mRs.Fields.Count - 1
+            titlecampo = mRs.Fields[campo].Name
+            valorcampo = CString(mRs[titlecampo])
+            usuariodata[titlecampo] = valorcampo
+        Next
+        mRs.movenext
+    Wend
+    Return usuariodata
+    
+End
+
+'' actualiza uno o mas usuarios segun los filtros de lso argumentos si existe algun filtro, sino retorna falso
+Public Function set_adm_usuario() As Boolean
+
+    Dim hresult As Result
+
+    ' todo: iterar en datos_adm_usuario y de alli sacar los campos validos de la db y ponerlos en la consulta
+    hresult = conectar.hconn.Create("Adm_usuario")
+    hresult["cod_usuario"] = datos_adm_usuario["cod_usuario"]
+    hresult.update
+    conectar.hconn.commit
+    Return True 
+    
+End
+
+'' retorna uno o mas usuarios en un objeto mapeado collection, sino retorna falso, dependiendo del filtro seteado en la clase
+Public Sub get_adm_usuario() As Result 
+
+    ' todo: iterar en filtros_adm_usuario y de alli sacar los campos validos de la db y ponerlos en la consulta
+    SQLString = "SELECT * FROM Adm_usuario" 
+    Try mRs = conectar.hconn.Exec(SQLString) 
+    If Error Then message.info("Consulta erronea, revisela")
+    Return mRs 
+
+End
+
+
+Public Function ConvertirResult(hr As Result) As Collection[][]
+
+    Dim datos As New Collection[][]
+    Dim datotmp As Collection[]
+
+    While hr.available
+        datotmp = New Collection[]
+        Try datotmp.cod_usuario = hr["cod_usuario"]
+        Try datos.add(datotmp)
+        hr.movenext
+    Wend
+    Return datos
+
+End
+
+Public Function ExtraerRegistro(NombreCampo As String, id As Integer) As Collection[]
+
+    Dim datosVO As Collection[]
+
+    ' Try datosVO = Me.ConvertirResult(Me.BuscarIgual(id, NombreCampo))[0] 'busco en el id del campo indicado la tabla/vista
+    ' If Error Then 
+    '     Print "warnning:", error.text, nombrecampo, id 
+    '     Return Null
+    ' Else
+    '     Return datosVO
+    ' Endif
+
+End
+
+Public Function last_Adm_usuario() As Collection[]
+
+    Dim datosVO As Collection[]
+    Dim hresult As Result
+
+    hresult = Me.contenido()
+    hresult.movelast
+    datosVO = Me.convertirResult(hresult)[0]
+    Return datosVO
+
+End
